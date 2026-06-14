@@ -320,10 +320,7 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece__no{ display:block; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1rem; }
 .piece__name{ font-family:var(--serif); font-weight:300; font-size:var(--fs-h3); line-height:.98; letter-spacing:-.01em; }
 .piece__mat{ display:block; font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--honey-deep); margin:.5rem 0 1.4rem; }
-.piece__copy{ color:var(--umber); opacity:.84; max-width:42ch; margin-bottom:1.8rem; }
-.piece__thumbs{ display:flex; gap:.7rem; margin-bottom:2rem; }
-.piece__thumbs img{ width:84px; height:64px; object-fit:cover; border-radius:var(--r); cursor:pointer; filter:saturate(.92) brightness(.96); transition:filter .4s, transform .4s var(--ease); }
-.piece__thumbs img:hover{ filter:none; transform:translateY(-3px); }
+.piece__copy{ color:var(--umber); opacity:.84; max-width:42ch; margin-bottom:2rem; }
 .piece__foot{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:1.4rem; }
 .piece__loc{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--honey-deep); }
 
