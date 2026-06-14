@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earth Made — Monolithic Stone Bathing Vessels</title>
+  <meta name="description" content="Earth Made carves monolithic bathing vessels from a single block of natural stone. Hand-hewn, elemental, made to outlive us. Private commissions for the world's most considered homes." />
+  <meta name="theme-color" content="#1c150d" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Earth Made — Hewn from a Single Stone" />
+  <meta property="og:description" content="Monolithic bathing vessels carved from a single block of natural stone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/canyon-01.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__mark">EARTH&nbsp;MADE</span>
+      <span class="loader__line"><i></i></span>
+      <span class="loader__count" id="loaderCount">00</span>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="scrollbar" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- Header -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" data-cursor="hover">
+      <span class="nav__brand-main">Earth Made</span>
+      <span class="nav__brand-sub">Stone&nbsp;Atelier</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#manifesto" data-cursor="hover">Philosophy</a>
+      <a href="#collection" data-cursor="hover">Collection</a>
+      <a href="#lumen" data-cursor="hover">Lumen</a>
+      <a href="#craft" data-cursor="hover">Craft</a>
+      <a href="#gallery" data-cursor="hover">Gallery</a>
+    </nav>
+    <a href="#inquire" class="nav__cta" data-cursor="hover">
+      <span>Commission</span>
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile overlay menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links">
+      <a href="#manifesto"><span class="menu__idx">01</span> Philosophy</a>
+      <a href="#collection"><span class="menu__idx">02</span> Collection</a>
+      <a href="#lumen"><span class="menu__idx">03</span> Lumen</a>
+      <a href="#craft"><span class="menu__idx">04</span> Craft</a>
+      <a href="#gallery"><span class="menu__idx">05</span> Gallery</a>
+      <a href="#inquire"><span class="menu__idx">06</span> Commission</a>
+    </nav>
+    <div class="menu__foot">
+      <span>Beverly Hills · Joshua Tree · Miami</span>
+      <span>atelier@earthmade.co</span>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__media">
+        <img src="assets/img/canyon-01.jpg" alt="A hand-carved honey-stone bathing vessel set before a wall of glass overlooking the canyon" class="hero__img" id="heroImg" />
+        <div class="hero__veil"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal-up">Monolithic stone · Carved to order · Est. MMXXVI</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Hewn from</span></span>
+          <span class="line"><span><em>a single</em> stone.</span></span>
+        </h1>
+        <p class="hero__lede reveal-up">
+          Earth Made shapes bathing vessels from monolithic blocks of natural stone —
+          each one quarried, hand-carved, and finished to live a hundred years in a single room.
+        </p>
+        <div class="hero__actions reveal-up">
+          <a href="#collection" class="btn btn--solid" data-cursor="hover"><span>View the collection</span></a>
+          <a href="#lumen" class="btn btn--ghost" data-cursor="hover"><span>Discover Lumen</span></a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <i></i>
+      </div>
+      <div class="hero__meta">
+        <span>34° N · Carrara · Travertine</span>
+        <span>No. 001 — The Monolith</span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Honey Travertine</span><i>✦</i><span>Illuminated Onyx</span><i>✦</i><span>Black River Stone</span><i>✦</i><span>Rosa Marble</span><i>✦</i><span>Rose Quartz</span><i>✦</i><span>Calacatta</span><i>✦</i>
+        <span>Honey Travertine</span><i>✦</i><span>Illuminated Onyx</span><i>✦</i><span>Black River Stone</span><i>✦</i><span>Rosa Marble</span><i>✦</i><span>Rose Quartz</span><i>✦</i><span>Calacatta</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ MANIFESTO ============ -->
+    <section class="manifesto section" id="manifesto">
+      <p class="section__index reveal-up">01 — Philosophy</p>
+      <h2 class="manifesto__body">
+        <span class="word">We</span> <span class="word">believe</span> <span class="word">the</span> <span class="word">bath</span> <span class="word">is</span>
+        <span class="word">the</span> <span class="word">last</span> <span class="word">true</span> <span class="word">refuge</span>
+        <span class="word">—</span> <span class="word">and</span> <span class="word">that</span> <span class="word">it</span> <span class="word">deserves</span>
+        <span class="word">to</span> <span class="word">be</span> <span class="word">carved,</span> <span class="word">not</span> <span class="word">cast.</span>
+        <span class="word em">Stone</span> <span class="word em">remembers</span> <span class="word em">water.</span>
+      </h2>
+      <p class="manifesto__sign reveal-up">— The Atelier, Earth Made</p>
+    </section>
+
+    <!-- ============ COLLECTION ============ -->
+    <section class="collection section" id="collection">
+      <div class="collection__intro">
+        <p class="section__index reveal-up">02 — The Collection</p>
+        <h2 class="display reveal-up">Six&nbsp;stones.<br/>Six&nbsp;vessels.</h2>
+        <p class="collection__note reveal-up">Each piece is a single block of one material, carved to order. We choose the stone for the room, never the room for the stone.</p>
+      </div>
+
+      <!-- 001 Monolith -->
+      <article class="piece" id="piece-monolith">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/canyon-03.jpg" data-full="assets/img/canyon-03.jpg" data-cap="The Monolith · Honey Travertine · Beverly Hills" alt="The Monolith vessel in a travertine bathroom over the canyon" loading="lazy" data-cursor="hover"/>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 001</span>
+          <h3 class="piece__name reveal-up">The Monolith</h3>
+          <span class="piece__mat reveal-up">Honey Travertine</span>
+          <p class="piece__copy reveal-up">The piece that began the atelier. A single block of honey travertine, hollowed by hand until the grain itself decides where the water gathers — warm to the touch even before it is filled.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/canyon-01-sm.jpg" data-full="assets/img/canyon-01.jpg" data-cap="The Monolith · Canyon · Beverly Hills" alt="Monolith in the canyon" loading="lazy"/>
+            <img class="js-lb" src="assets/img/desert-01-sm.jpg" data-full="assets/img/desert-01.jpg" data-cap="The Monolith · Desert · Joshua Tree" alt="Monolith in the desert" loading="lazy"/>
+            <img class="js-lb" src="assets/img/shore-01-sm.jpg" data-full="assets/img/shore-01.jpg" data-cap="The Monolith · Shore · Biscayne Bay" alt="Monolith by the shore" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">Beverly Hills · Joshua Tree · Miami</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Request this piece</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 002 Lumen -->
+      <article class="piece piece--flip" id="piece-lumen">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/lumen-ny-02.jpg" data-full="assets/img/lumen-ny-02.jpg" data-cap="Lumen · Illuminated Onyx · New York" alt="Lumen glowing onyx vessel above the New York skyline" loading="lazy" data-cursor="hover"/>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 002</span>
+          <h3 class="piece__name reveal-up">Lumen</h3>
+          <span class="piece__mat reveal-up">Illuminated Onyx</span>
+          <p class="piece__copy reveal-up">Onyx is the only stone that holds light. We line each Lumen with a warm source and the vessel glows from within — a lantern you bathe inside. After dark, against a skyline, it becomes the room.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/lumen-tokyo-02-sm.jpg" data-full="assets/img/lumen-tokyo-02.jpg" data-cap="Lumen · Tokyo" alt="Lumen in Tokyo" loading="lazy"/>
+            <img class="js-lb" src="assets/img/lumen-bali-03-sm.jpg" data-full="assets/img/lumen-bali-03.jpg" data-cap="Lumen · Bali" alt="Lumen in Bali" loading="lazy"/>
+            <img class="js-lb" src="assets/img/lumen-la-02-sm.jpg" data-full="assets/img/lumen-la-02.jpg" data-cap="Lumen · Los Angeles" alt="Lumen in Los Angeles" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">Tokyo · New York · Bali</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Request this piece</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 003 Erebus -->
+      <article class="piece" id="piece-erebus">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/erebus-01.jpg" data-full="assets/img/erebus-01.jpg" data-cap="Erebus · Black River Stone · Garden House" alt="Erebus dark river-stone vessel facing a garden" loading="lazy" data-cursor="hover"/>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 003</span>
+          <h3 class="piece__name reveal-up">Erebus</h3>
+          <span class="piece__mat reveal-up">Black River Stone</span>
+          <p class="piece__copy reveal-up">A boulder lifted whole from a riverbed — its outer skin left raw, its basin honed to black glass. The contrast of wild and worked. The heaviest vessel we make, and the most quiet.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/erebus-02-sm.jpg" data-full="assets/img/erebus-02.jpg" data-cap="Erebus · Garden House" alt="Erebus, second view" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">The Garden House</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Request this piece</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 004 Rosa -->
+      <article class="piece piece--flip" id="piece-rosa">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/rosa-med-01.jpg" data-full="assets/img/rosa-med-01.jpg" data-cap="Rosa · Rosa Marble · Mediterranean" alt="Rosa marble vessel in a Mediterranean room" loading="lazy" data-cursor="hover"/>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 004</span>
+          <h3 class="piece__name reveal-up">Rosa</h3>
+          <span class="piece__mat reveal-up">Rosa Marble</span>
+          <p class="piece__copy reveal-up">Blush veins drawn through warm stone, polished to a soft sheen. Rosa takes the colour of every sunrise and sunset it faces, and is never quite the same hour twice.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/rosa-bay-01-sm.jpg" data-full="assets/img/rosa-bay-01.jpg" data-cap="Rosa · Biscayne Bay" alt="Rosa by the bay" loading="lazy"/>
+            <img class="js-lb" src="assets/img/rosa-bay-03-sm.jpg" data-full="assets/img/rosa-bay-03.jpg" data-cap="Rosa · Biscayne Bay at dusk" alt="Rosa at dusk" loading="lazy"/>
+            <img class="js-lb" src="assets/img/rosa-med-02-sm.jpg" data-full="assets/img/rosa-med-02.jpg" data-cap="Rosa · Mediterranean" alt="Rosa, Mediterranean view" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">Mediterranean · Miami</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Request this piece</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 005 Aurora -->
+      <article class="piece" id="piece-aurora">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/aurora-01.jpg" data-full="assets/img/aurora-01.jpg" data-cap="Aurora · Raw Rose Quartz · Mojave" alt="Aurora raw rose-quartz vessel in the desert" loading="lazy" data-cursor="hover"/>
+          <span class="piece__rare">Rarest · by commission only</span>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 005</span>
+          <h3 class="piece__name reveal-up">Aurora</h3>
+          <span class="piece__mat reveal-up">Raw Rose Quartz</span>
+          <p class="piece__copy reveal-up">The rarest vessel we carve. A monolith of rose quartz, left in its crystalline rough on the outside and smoothed only where the body rests. Light enters the stone and scatters pink.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/aurora-02-sm.jpg" data-full="assets/img/aurora-02.jpg" data-cap="Aurora · Mojave" alt="Aurora, second view" loading="lazy"/>
+            <img class="js-lb" src="assets/img/aurora-03-sm.jpg" data-full="assets/img/aurora-03.jpg" data-cap="Aurora · Mojave light" alt="Aurora in the light" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">Mojave Desert · subject to the stone</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Enquire to commission</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 006 Calacatta -->
+      <article class="piece piece--flip" id="piece-calacatta">
+        <div class="piece__media reveal-img">
+          <img class="js-lb" src="assets/img/calacatta-01.jpg" data-full="assets/img/calacatta-01.jpg" data-cap="Calacatta · White Marble · Bel Air" alt="Calacatta white marble vessel above the hills" loading="lazy" data-cursor="hover"/>
+        </div>
+        <div class="piece__info">
+          <span class="piece__no reveal-up">No. 006</span>
+          <h3 class="piece__name reveal-up">Calacatta</h3>
+          <span class="piece__mat reveal-up">White Calacatta Marble</span>
+          <p class="piece__copy reveal-up">Bright white marble threaded with grey, carved into a thin, sweeping bowl. The most architectural vessel of the collection — it belongs to glass houses and high, clean light.</p>
+          <div class="piece__thumbs reveal-up">
+            <img class="js-lb" src="assets/img/calacatta-02-sm.jpg" data-full="assets/img/calacatta-02.jpg" data-cap="Calacatta · Bel Air" alt="Calacatta, second view" loading="lazy"/>
+            <img class="js-lb" src="assets/img/calacatta-03-sm.jpg" data-full="assets/img/calacatta-03.jpg" data-cap="Calacatta · Bel Air hills" alt="Calacatta over the hills" loading="lazy"/>
+          </div>
+          <div class="piece__foot reveal-up">
+            <span class="piece__loc">Bel Air · California</span>
+            <a href="#inquire" class="btn btn--line" data-cursor="hover"><span>Request this piece</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ LUMEN SPOTLIGHT ============ -->
+    <section class="lumen" id="lumen">
+      <img src="assets/img/lumen-tokyo-02.jpg" alt="" class="lumen__bg" aria-hidden="true" loading="lazy"/>
+      <div class="lumen__veil"></div>
+      <div class="lumen__inner section">
+        <p class="section__index light reveal-up">03 — Lumen</p>
+        <h2 class="lumen__title reveal-up">Light,<br/><em>made&nbsp;liquid.</em></h2>
+        <p class="lumen__lede reveal-up">Our signature vessel is carved from a single shell of honey onyx thin enough to pass light. Lit from beneath, it turns water to amber and the darkest room to a glow. By night, above a skyline, Lumen is no longer furniture — it is the source.</p>
+        <div class="lumen__cities reveal-stagger">
+          <figure class="lumen__city">
+            <img class="js-lb" src="assets/img/lumen-tokyo-03-sm.jpg" data-full="assets/img/lumen-tokyo-03.jpg" data-cap="Lumen · Tokyo" alt="Lumen above Tokyo" loading="lazy"/>
+            <figcaption>Tokyo</figcaption>
+          </figure>
+          <figure class="lumen__city">
+            <img class="js-lb" src="assets/img/lumen-ny-03-sm.jpg" data-full="assets/img/lumen-ny-03.jpg" data-cap="Lumen · New York" alt="Lumen above New York" loading="lazy"/>
+            <figcaption>New York</figcaption>
+          </figure>
+          <figure class="lumen__city">
+            <img class="js-lb" src="assets/img/lumen-bali-01-sm.jpg" data-full="assets/img/lumen-bali-01.jpg" data-cap="Lumen · Bali" alt="Lumen in Bali" loading="lazy"/>
+            <figcaption>Bali</figcaption>
+          </figure>
+        </div>
+        <a href="#inquire" class="btn btn--solid lumen__cta" data-cursor="hover"><span>Commission a Lumen</span></a>
+      </div>
+    </section>
+
+    <!-- ============ CRAFT / NUMBERS ============ -->
+    <section class="craft section" id="craft">
+      <div class="craft__head">
+        <p class="section__index reveal-up">04 — Craft</p>
+        <h2 class="display reveal-up">From quarry<br/>to threshold.</h2>
+      </div>
+      <div class="craft__grid">
+        <div class="craft__step reveal-up">
+          <span class="craft__step-no">01</span>
+          <h4>The block is read</h4>
+          <p>A single mass is chosen at the quarry. Its veins decide where the water will fall.</p>
+        </div>
+        <div class="craft__step reveal-up">
+          <span class="craft__step-no">02</span>
+          <h4>Hollowed by hand</h4>
+          <p>Months of carving remove four hundred kilos, never adding a seam. The form emerges; it is not assembled.</p>
+        </div>
+        <div class="craft__step reveal-up">
+          <span class="craft__step-no">03</span>
+          <h4>Honed &amp; sealed</h4>
+          <p>The surface is brought to a soft, hand-warm finish and sealed to hold a century of water.</p>
+        </div>
+      </div>
+
+      <div class="stats reveal-stagger">
+        <div class="stat"><span class="stat__num" data-count="1">1</span><span class="stat__label">block of stone</span></div>
+        <div class="stat"><span class="stat__num" data-count="400">400</span><span class="stat__label">kg carved away</span></div>
+        <div class="stat"><span class="stat__num" data-count="16">16</span><span class="stat__label">weeks by hand</span></div>
+        <div class="stat"><span class="stat__num" data-count="100">100</span><span class="stat__label">years of water</span></div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery section" id="gallery">
+      <div class="gallery__head">
+        <p class="section__index reveal-up">05 — Gallery</p>
+        <h2 class="display reveal-up">The&nbsp;Archive</h2>
+        <p class="gallery__sub reveal-up">Every stone, every setting. Select any frame to view it whole.</p>
+      </div>
+      <div class="gallery__grid" id="galleryGrid">
+        <figure class="gtile gtile--tall"><img class="js-lb" src="assets/img/lumen-tokyo-01-sm.jpg" data-full="assets/img/lumen-tokyo-01.jpg" data-cap="Lumen · Illuminated Onyx · Tokyo" alt="Lumen glowing above Tokyo" loading="lazy"/><figcaption>Lumen · Tokyo</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/aurora-01-sm.jpg" data-full="assets/img/aurora-01.jpg" data-cap="Aurora · Raw Rose Quartz · Mojave" alt="Aurora rose quartz in the desert" loading="lazy"/><figcaption>Aurora · Mojave</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/calacatta-03-sm.jpg" data-full="assets/img/calacatta-03.jpg" data-cap="Calacatta · White Marble · Bel Air" alt="Calacatta marble over the hills" loading="lazy"/><figcaption>Calacatta · Bel Air</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/rosa-bay-01-sm.jpg" data-full="assets/img/rosa-bay-01.jpg" data-cap="Rosa · Rosa Marble · Biscayne Bay" alt="Rosa marble by the bay" loading="lazy"/><figcaption>Rosa · Miami</figcaption></figure>
+        <figure class="gtile gtile--wide"><img class="js-lb" src="assets/img/lumen-ny-01-sm.jpg" data-full="assets/img/lumen-ny-01.jpg" data-cap="Lumen · Illuminated Onyx · New York" alt="Lumen above New York" loading="lazy"/><figcaption>Lumen · New York</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/erebus-01-sm.jpg" data-full="assets/img/erebus-01.jpg" data-cap="Erebus · Black River Stone" alt="Erebus river stone" loading="lazy"/><figcaption>Erebus · Garden</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/shore-03-sm.jpg" data-full="assets/img/shore-03.jpg" data-cap="The Monolith · Honey Travertine · Biscayne Bay" alt="Monolith by the shore" loading="lazy"/><figcaption>Monolith · Shore</figcaption></figure>
+        <figure class="gtile gtile--tall"><img class="js-lb" src="assets/img/lumen-bali-02-sm.jpg" data-full="assets/img/lumen-bali-02.jpg" data-cap="Lumen · Illuminated Onyx · Bali" alt="Lumen in a Bali garden" loading="lazy"/><figcaption>Lumen · Bali</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/canyon-01-sm.jpg" data-full="assets/img/canyon-01.jpg" data-cap="The Monolith · Honey Travertine · Beverly Hills" alt="Monolith in the canyon" loading="lazy"/><figcaption>Monolith · Canyon</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/rosa-med-01-sm.jpg" data-full="assets/img/rosa-med-01.jpg" data-cap="Rosa · Rosa Marble · Mediterranean" alt="Rosa in a Mediterranean room" loading="lazy"/><figcaption>Rosa · Mediterranean</figcaption></figure>
+        <figure class="gtile"><img class="js-lb" src="assets/img/desert-02-sm.jpg" data-full="assets/img/desert-02.jpg" data-cap="The Monolith · Honey Travertine · Joshua Tree" alt="Monolith in the desert" loading="lazy"/><figcaption>Monolith · Desert</figcaption></figure>
+        <figure class="gtile gtile--wide"><img class="js-lb" src="assets/img/lumen-la-01-sm.jpg" data-full="assets/img/lumen-la-01.jpg" data-cap="Lumen · Illuminated Onyx · Los Angeles" alt="Lumen above the Los Angeles lights" loading="lazy"/><figcaption>Lumen · Los Angeles</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ INQUIRE ============ -->
+    <section class="inquire" id="inquire">
+      <img src="assets/img/lumen-bali-01.jpg" alt="" class="inquire__bg" aria-hidden="true" loading="lazy"/>
+      <div class="inquire__veil"></div>
+      <div class="inquire__inner section">
+        <p class="section__index light reveal-up">06 — Commission</p>
+        <h2 class="inquire__title reveal-up">Begin a private<br/>commission.</h2>
+        <p class="inquire__lede reveal-up">We accept a limited number of pieces each season. Tell us about the room, the light, and the life it will hold.</p>
+
+        <form class="form" id="inquireForm" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <input type="text" id="name" name="name" required placeholder=" " autocomplete="name" data-cursor="hover"/>
+              <label for="name">Full name</label>
+              <span class="field__line"></span>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" required placeholder=" " autocomplete="email" data-cursor="hover"/>
+              <label for="email">Email</label>
+              <span class="field__line"></span>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="field">
+              <input type="text" id="location" name="location" placeholder=" " autocomplete="address-level2" data-cursor="hover"/>
+              <label for="location">City / Location</label>
+              <span class="field__line"></span>
+            </div>
+            <div class="field">
+              <select id="material" name="material" data-cursor="hover">
+                <option value="" disabled selected></option>
+                <option>001 · The Monolith — Honey Travertine</option>
+                <option>002 · Lumen — Illuminated Onyx</option>
+                <option>003 · Erebus — Black River Stone</option>
+                <option>004 · Rosa — Rosa Marble</option>
+                <option>005 · Aurora — Raw Rose Quartz</option>
+                <option>006 · Calacatta — White Marble</option>
+                <option>Guide me</option>
+              </select>
+              <label for="material" class="label--static">Piece of interest</label>
+              <span class="field__line"></span>
+            </div>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" rows="3" placeholder=" " data-cursor="hover"></textarea>
+            <label for="message">Tell us about the room</label>
+            <span class="field__line"></span>
+          </div>
+          <button type="submit" class="btn btn--solid btn--wide" data-cursor="hover"><span>Send inquiry</span></button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="#top" class="footer__brand" data-cursor="hover">Earth&nbsp;Made</a>
+      <p class="footer__tag">Monolithic bathing vessels, carved from a single stone.</p>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="footer__label">Atelier</span>
+        <a href="#manifesto">Philosophy</a>
+        <a href="#lumen">Lumen</a>
+        <a href="#craft">Craft</a>
+        <a href="#gallery">The Archive</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__label">The Collection</span>
+        <a href="#piece-monolith">001 · The Monolith</a>
+        <a href="#piece-lumen">002 · Lumen</a>
+        <a href="#piece-erebus">003 · Erebus</a>
+        <a href="#piece-rosa">004 · Rosa</a>
+        <a href="#piece-aurora">005 · Aurora</a>
+        <a href="#piece-calacatta">006 · Calacatta</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__label">Contact</span>
+        <a href="mailto:atelier@earthmade.co">atelier@earthmade.co</a>
+        <a href="tel:+13105550100">+1 310 555 0100</a>
+        <a href="#inquire">Commission a piece</a>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> Earth Made Stone Atelier</span>
+      <span>Quarried responsibly · Carved by hand</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox__close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure class="lightbox__stage">
+      <img src="" alt="" id="lbImg" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

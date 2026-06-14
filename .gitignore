@@ -1,0 +1,9 @@
+# Original full-resolution source renders (optimized JPEGs live in site/assets/img)
+/ChatGPT Image*.png
+/*.png
+
+# Tooling / local
+.claude/
+.vercel/
+.DS_Store
+node_modules/

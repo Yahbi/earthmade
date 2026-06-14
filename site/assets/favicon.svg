@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#1c150d"/>
+  <ellipse cx="32" cy="38" rx="19" ry="11" fill="none" stroke="#c79a5b" stroke-width="2.4"/>
+  <path d="M15 38 a17 9 0 0 0 34 0" fill="#c79a5b" opacity="0.18"/>
+  <text x="32" y="22" font-family="Georgia, serif" font-size="15" fill="#e8dcc8" text-anchor="middle" font-style="italic">E</text>
+</svg>
