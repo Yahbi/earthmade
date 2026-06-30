@@ -17,22 +17,24 @@ A luxury, single-page showcase for **Earth Made**: monolithic bathing vessels ca
 
 ## Pricing & commerce
 
-Each piece is priced at **2.5–3× the researched wholesale (Alibaba/manufacturer) cost**. The buyer pays freight; the atelier keeps the margin.
+Each piece is priced at **2.5–3× real supplier cost** (the buyer pays freight; the atelier keeps the margin). Costs are **actual published prices** from the manufacturing factories that sell on Alibaba — Alibaba's own listing pages block automated scraping and hide supplier email/phone behind a login, so prices/contacts are sourced from each factory's own site and Made-in-China.com.
 
-| SKU | Piece | Material | Wholesale (est.) | × | Retail |
-|-----|-------|----------|------------------|---|--------|
-| EM-001 | The Monolith | Honey Travertine | $2,200 | 2.82 | **$6,200** |
-| EM-002 | Lumen | Illuminated Onyx | $6,800 | 2.76 | **$18,800** |
-| EM-003 | Erebus | Black River Stone | $2,900 | 2.72 | **$7,900** |
-| EM-004 | Rosa | Rosa Marble | $4,200 | 2.76 | **$11,600** |
-| EM-005 | Aurora | Raw Rose Quartz | $12,000 | 3.00 | **$36,000** |
-| EM-006 | Calacatta | White Calacatta Marble | $4,800 | 2.75 | **$13,200** |
+| SKU | Piece | Material | Real cost | × | Retail | Supplier |
+|-----|-------|----------|-----------|---|--------|----------|
+| EM-001 | The Monolith | Honey Travertine | $2,300 | 2.78 | **$6,400** | Lux4home™ |
+| EM-002 | Lumen | Illuminated Onyx | $5,000 | 2.90 | **$14,500** | Lux4home™ |
+| EM-003 | Erebus | Black River Stone | $2,300 | 2.70 | **$6,200** | Lux4home™ (FLUMEN) |
+| EM-004 | Rosa | Rosa Marble | $2,300 | 2.78 | **$6,400** | Lux4home™ (AUREA) |
+| EM-005 | Aurora | Raw Rose Quartz | $30,000 | 2.50 | **$75,000** | New Home Stone |
+| EM-006 | Calacatta | White Calacatta Marble | $1,783 | 2.92 | **$5,200** | Stone (Quanzhou) Supply Chain |
 
 **Order flow:** buyer clicks *Acquire* → reserves with contact + delivery details → you are notified → you place the order with the supplier and send a secure payment link + freight quote. Freight is **client-arranged and paid by the buyer**.
 
 ### Two operator files (kept off the website, generated on the Desktop)
-- `EarthMade_Supplier_Sourcing.csv` — per-piece wholesale cost, markup, retail, margin, and **real supplier contacts** (Lux4home, Xiamen Jiamei, HZX Stone, New Home Stone) with email/phone/location + Alibaba category links.
-- `EarthMade_Shopify_Products.csv` — ready to bulk-import into Shopify (Products → Import). Includes titles, descriptions, retail prices, SKUs, and image URLs for all six pieces.
+- `EarthMade_Supplier_Sourcing.csv` — clean sheet: SKU, item, material, supplier, **email, phone, location**, real wholesale, markup, our price, margin, source listing.
+- `EarthMade_Shopify_Products.csv` — ready to bulk-import into Shopify (Products → Import): titles, descriptions, retail prices, SKUs, image URLs for all six pieces.
+
+**Verified supplier contacts:** Lux4home™ (info@lux4home.com, +48 450 030 444), New Home Stone (jack@newhomestone.com), Xiamen Jiamei Stone (info@jiameistone.com, +86-592-5518264), HZX Stone (info@hzxco.com, +86 139 5929 9885), Stone (Quanzhou) Supply Chain (via Made-in-China.com).
 
 ### Wiring real payment (two options)
 Open `site/js/shop.js` and set `SHOP_CONFIG`:
