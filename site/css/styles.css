@@ -314,7 +314,7 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece:first-of-type{ border-top:none; }
 .piece--flip .piece__media{ order:2; }
 .piece__media{ position:relative; overflow:hidden; border-radius:var(--r); }
-.piece__media > img{ width:100%; aspect-ratio:4/3; object-fit:cover; will-change:transform; transition:transform 1.2s var(--ease); }
+.piece__media > img{ width:100%; aspect-ratio:4/5; object-fit:cover; will-change:transform; transition:transform 1.2s var(--ease); }
 .piece__media:hover > img{ transform:scale(1.04); }
 .piece__rare{ position:absolute; top:1.1rem; left:1.1rem; background:rgba(28,21,13,.62); backdrop-filter:blur(6px); color:var(--sand); font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; padding:.5em 1em; border-radius:100px; }
 .piece__no{ display:block; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1rem; }
