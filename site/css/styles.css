@@ -321,6 +321,11 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece__name{ font-family:var(--serif); font-weight:300; font-size:var(--fs-h3); line-height:.98; letter-spacing:-.01em; }
 .piece__mat{ display:block; font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--honey-deep); margin:.5rem 0 1.4rem; }
 .piece__copy{ color:var(--umber); opacity:.84; max-width:42ch; margin-bottom:2rem; }
+.piece__angles{ margin:.4rem 0 1.6rem; }
+.piece__angles-label{ display:block; font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:.7rem; }
+.piece__angles-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; }
+.piece__angles-row img{ width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:var(--r); cursor:pointer; filter:saturate(.96) brightness(.97); transition:filter .4s, transform .5s var(--ease); }
+.piece__angles-row img:hover{ filter:none; transform:translateY(-3px); }
 .piece__loc{ display:block; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1.4rem; }
 .piece__foot{ display:flex; align-items:flex-end; justify-content:space-between; gap:1.5rem 2rem; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:1.5rem; }
 .piece__price{ display:flex; flex-direction:column; gap:.25rem; }
