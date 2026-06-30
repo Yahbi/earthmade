@@ -46,7 +46,7 @@
   /* ---------- Reservation modal ---------- */
   const modal = $('#checkout');
   const f = {
-    title: $('#coTitle'), mat: $('#coMat'), price: $('#coPrice'),
+    title: $('#coTitle'), mat: $('#coMat'), price: $('#coPrice'), freight: $('#coFreight'),
     sku: $('#coSku'), item: $('#coItem'), form: $('#coForm'),
     status: $('#coStatus'), submit: $('#coSubmit'),
   };
@@ -57,6 +57,9 @@
     f.title.textContent = d.piece;
     f.mat.textContent = d.material;
     f.price.textContent = fmt(d.price);
+    if (f.freight) f.freight.textContent = d.freight
+      ? `+ indicative worldwide freight from ${fmt(d.freight)}, arranged at cost and paid by the client.`
+      : '';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
@@ -80,6 +83,7 @@
         piece: btn.dataset.piece,
         material: btn.dataset.material,
         price: +btn.dataset.price,
+        freight: +btn.dataset.freight || 0,
         label: btn.querySelector('span').textContent.trim(),
       };
       if (shopifyReady(d.sku)) goToShopify(d.sku);
@@ -111,6 +115,7 @@
       sku: active.sku,
       item: f.item.value,
       price_usd: active.price,
+      indicative_freight_usd: active.freight || 'TBD',
       name, email,
       phone: $('#coPhone').value.trim(),
       delivery_city: $('#coCity').value.trim(),

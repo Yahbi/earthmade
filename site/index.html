@@ -19,6 +19,22 @@
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Structured data: brand + product catalogue -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", "@id": "https://yahbi.github.io/earthmade/#org", "name": "Earth Made", "description": "Atelier of monolithic stone bathing vessels, carved from a single block of natural stone.", "email": "atelier@earthmade.co", "url": "https://yahbi.github.io/earthmade/" },
+      { "@type": "Product", "name": "The Monolith — Honey Travertine Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "Honey Travertine", "image": "https://yahbi.github.io/earthmade/assets/img/studio-monolith.jpg", "sku": "EM-001", "offers": {"@type":"Offer","price":"6400","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-monolith"} },
+      { "@type": "Product", "name": "Lumen — Illuminated Onyx Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "Illuminated Onyx", "image": "https://yahbi.github.io/earthmade/assets/img/studio-lumen.jpg", "sku": "EM-002", "offers": {"@type":"Offer","price":"14500","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-lumen"} },
+      { "@type": "Product", "name": "Erebus — Black River Stone Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "Black River Stone", "image": "https://yahbi.github.io/earthmade/assets/img/studio-erebus.jpg", "sku": "EM-003", "offers": {"@type":"Offer","price":"6200","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-erebus"} },
+      { "@type": "Product", "name": "Rosa — Rosa Marble Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "Rosa Marble", "image": "https://yahbi.github.io/earthmade/assets/img/studio-rosa.jpg", "sku": "EM-004", "offers": {"@type":"Offer","price":"6400","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-rosa"} },
+      { "@type": "Product", "name": "Aurora — Raw Rose Quartz Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "Raw Rose Quartz", "image": "https://yahbi.github.io/earthmade/assets/img/studio-aurora.jpg", "sku": "EM-005", "offers": {"@type":"Offer","price":"75000","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-aurora"} },
+      { "@type": "Product", "name": "Calacatta — White Calacatta Marble Bathing Vessel", "brand": {"@id":"https://yahbi.github.io/earthmade/#org"}, "material": "White Calacatta Marble", "image": "https://yahbi.github.io/earthmade/assets/img/studio-calacatta.jpg", "sku": "EM-006", "offers": {"@type":"Offer","price":"5200","priceCurrency":"USD","availability":"https://schema.org/MadeToOrder","url":"https://yahbi.github.io/earthmade/#piece-calacatta"} }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Grain overlay -->
@@ -50,6 +66,7 @@
       <a href="#lumen" data-cursor="hover">Lumen</a>
       <a href="#craft" data-cursor="hover">Craft</a>
       <a href="#gallery" data-cursor="hover">Gallery</a>
+      <a href="#details" data-cursor="hover">Details</a>
     </nav>
     <a href="#inquire" class="nav__cta" data-cursor="hover">
       <span>Commission</span>
@@ -67,7 +84,8 @@
       <a href="#lumen"><span class="menu__idx">03</span> Lumen</a>
       <a href="#craft"><span class="menu__idx">04</span> Craft</a>
       <a href="#gallery"><span class="menu__idx">05</span> Gallery</a>
-      <a href="#inquire"><span class="menu__idx">06</span> Commission</a>
+      <a href="#details"><span class="menu__idx">06</span> Details</a>
+      <a href="#inquire"><span class="menu__idx">07</span> Commission</a>
     </nav>
     <div class="menu__foot">
       <span>Beverly Hills · Joshua Tree · Miami</span>
@@ -148,12 +166,13 @@
           <span class="piece__no reveal-up">No. 001</span>
           <h3 class="piece__name reveal-up">The Monolith</h3>
           <span class="piece__mat reveal-up">Honey Travertine</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1900 × 980 × 600 mm</dd></div><div><dt>Weight</dt><dd>350 kg</dd></div><div><dt>Lead time</dt><dd>16 weeks</dd></div></dl>
           <p class="piece__copy reveal-up">The piece that began the atelier. A single block of honey travertine, hollowed by hand until the grain itself decides where the water gathers — warm to the touch even before it is filled.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/monolith-env-1-sm.jpg" data-full="assets/img/monolith-env-1.jpg" data-cap="The Monolith · Honey Travertine · Beverly Hills" alt="The Monolith in Honey Travertine — Beverly Hills" loading="lazy"/><img class="js-lb" src="assets/img/monolith-env-2-sm.jpg" data-full="assets/img/monolith-env-2.jpg" data-cap="The Monolith · Honey Travertine · Joshua Tree" alt="The Monolith in Honey Travertine — Joshua Tree" loading="lazy"/><img class="js-lb" src="assets/img/monolith-env-3-sm.jpg" data-full="assets/img/monolith-env-3.jpg" data-cap="The Monolith · Honey Travertine · Biscayne Bay" alt="The Monolith in Honey Travertine — Biscayne Bay" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">Beverly Hills · Joshua Tree · Miami</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$6,400</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-001" data-piece="The Monolith" data-material="Honey Travertine" data-price="6400" data-cursor="hover"><span>Acquire</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="1400" data-sku="EM-001" data-piece="The Monolith" data-material="Honey Travertine" data-price="6400" data-cursor="hover"><span>Acquire</span></button>
           </div>
         </div>
       </article>
@@ -167,12 +186,13 @@
           <span class="piece__no reveal-up">No. 002</span>
           <h3 class="piece__name reveal-up">Lumen</h3>
           <span class="piece__mat reveal-up">Illuminated Onyx</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1850 × 900 × 580 mm</dd></div><div><dt>Weight</dt><dd>300 kg</dd></div><div><dt>Lead time</dt><dd>8–10 weeks</dd></div></dl>
           <p class="piece__copy reveal-up">Onyx is the only stone that holds light. We line each Lumen with a warm source and the vessel glows from within — a lantern you bathe inside. After dark, against a skyline, it becomes the room.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/lumen-env-1-sm.jpg" data-full="assets/img/lumen-env-1.jpg" data-cap="Lumen · Illuminated Onyx · Tokyo" alt="Lumen in Illuminated Onyx — Tokyo" loading="lazy"/><img class="js-lb" src="assets/img/lumen-env-2-sm.jpg" data-full="assets/img/lumen-env-2.jpg" data-cap="Lumen · Illuminated Onyx · New York" alt="Lumen in Illuminated Onyx — New York" loading="lazy"/><img class="js-lb" src="assets/img/lumen-env-3-sm.jpg" data-full="assets/img/lumen-env-3.jpg" data-cap="Lumen · Illuminated Onyx · Bali" alt="Lumen in Illuminated Onyx — Bali" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">Tokyo · New York · Bali</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$14,500</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-002" data-piece="Lumen" data-material="Illuminated Onyx" data-price="14500" data-cursor="hover"><span>Acquire</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="1500" data-sku="EM-002" data-piece="Lumen" data-material="Illuminated Onyx" data-price="14500" data-cursor="hover"><span>Acquire</span></button>
           </div>
         </div>
       </article>
@@ -186,12 +206,13 @@
           <span class="piece__no reveal-up">No. 003</span>
           <h3 class="piece__name reveal-up">Erebus</h3>
           <span class="piece__mat reveal-up">Black River Stone</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1700 × 950 × 600 mm</dd></div><div><dt>Weight</dt><dd>1315 kg</dd></div><div><dt>Lead time</dt><dd>25–35 days</dd></div></dl>
           <p class="piece__copy reveal-up">A boulder lifted whole from a riverbed — its outer skin left raw, its basin honed to black glass. The contrast of wild and worked. The heaviest vessel we make, and the most quiet.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/erebus-env-1-sm.jpg" data-full="assets/img/erebus-env-1.jpg" data-cap="Erebus · Black River Stone · Garden House" alt="Erebus in Black River Stone — Garden House" loading="lazy"/><img class="js-lb" src="assets/img/erebus-env-2-sm.jpg" data-full="assets/img/erebus-env-2.jpg" data-cap="Erebus · Black River Stone · Profile" alt="Erebus in Black River Stone — Profile" loading="lazy"/><img class="js-lb" src="assets/img/erebus-env-3-sm.jpg" data-full="assets/img/erebus-env-3.jpg" data-cap="Erebus · Black River Stone · Basin detail" alt="Erebus in Black River Stone — Basin detail" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">The Garden House</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$6,200</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-003" data-piece="Erebus" data-material="Black River Stone" data-price="6200" data-cursor="hover"><span>Acquire</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="2600" data-sku="EM-003" data-piece="Erebus" data-material="Black River Stone" data-price="6200" data-cursor="hover"><span>Acquire</span></button>
           </div>
         </div>
       </article>
@@ -205,12 +226,13 @@
           <span class="piece__no reveal-up">No. 004</span>
           <h3 class="piece__name reveal-up">Rosa</h3>
           <span class="piece__mat reveal-up">Rosa Marble</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1900 × 950 × 600 mm</dd></div><div><dt>Weight</dt><dd>600 kg</dd></div><div><dt>Lead time</dt><dd>8–10 weeks</dd></div></dl>
           <p class="piece__copy reveal-up">Blush veins drawn through warm stone, polished to a soft sheen. Rosa takes the colour of every sunrise and sunset it faces, and is never quite the same hour twice.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/rosa-env-1-sm.jpg" data-full="assets/img/rosa-env-1.jpg" data-cap="Rosa · Rosa Marble · Mediterranean" alt="Rosa in Rosa Marble — Mediterranean" loading="lazy"/><img class="js-lb" src="assets/img/rosa-env-2-sm.jpg" data-full="assets/img/rosa-env-2.jpg" data-cap="Rosa · Rosa Marble · Biscayne Bay" alt="Rosa in Rosa Marble — Biscayne Bay" loading="lazy"/><img class="js-lb" src="assets/img/rosa-env-3-sm.jpg" data-full="assets/img/rosa-env-3.jpg" data-cap="Rosa · Rosa Marble · Basin detail" alt="Rosa in Rosa Marble — Basin detail" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">Mediterranean · Miami</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$6,400</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-004" data-piece="Rosa" data-material="Rosa Marble" data-price="6400" data-cursor="hover"><span>Acquire</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="1600" data-sku="EM-004" data-piece="Rosa" data-material="Rosa Marble" data-price="6400" data-cursor="hover"><span>Acquire</span></button>
           </div>
         </div>
       </article>
@@ -225,12 +247,13 @@
           <span class="piece__no reveal-up">No. 005</span>
           <h3 class="piece__name reveal-up">Aurora</h3>
           <span class="piece__mat reveal-up">Raw Rose Quartz</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1750 × 950 × 620 mm</dd></div><div><dt>Weight</dt><dd>700 kg</dd></div><div><dt>Lead time</dt><dd>14–18 weeks</dd></div></dl>
           <p class="piece__copy reveal-up">The rarest vessel we carve. A monolith of rose quartz, left in its crystalline rough on the outside and smoothed only where the body rests. Light enters the stone and scatters pink.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/aurora-env-1-sm.jpg" data-full="assets/img/aurora-env-1.jpg" data-cap="Aurora · Raw Rose Quartz · Mojave" alt="Aurora in Raw Rose Quartz — Mojave" loading="lazy"/><img class="js-lb" src="assets/img/aurora-env-2-sm.jpg" data-full="assets/img/aurora-env-2.jpg" data-cap="Aurora · Raw Rose Quartz · Profile" alt="Aurora in Raw Rose Quartz — Profile" loading="lazy"/><img class="js-lb" src="assets/img/aurora-env-3-sm.jpg" data-full="assets/img/aurora-env-3.jpg" data-cap="Aurora · Raw Rose Quartz · Basin detail" alt="Aurora in Raw Rose Quartz — Basin detail" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">Mojave Desert · subject to the stone</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$75,000</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-005" data-piece="Aurora" data-material="Raw Rose Quartz" data-price="75000" data-cursor="hover"><span>Reserve</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="2800" data-sku="EM-005" data-piece="Aurora" data-material="Raw Rose Quartz" data-price="75000" data-cursor="hover"><span>Reserve</span></button>
           </div>
         </div>
       </article>
@@ -244,12 +267,13 @@
           <span class="piece__no reveal-up">No. 006</span>
           <h3 class="piece__name reveal-up">Calacatta</h3>
           <span class="piece__mat reveal-up">White Calacatta Marble</span>
+          <dl class="piece__spec reveal-up"><div><dt>Dimensions</dt><dd>1950 × 920 × 560 mm</dd></div><div><dt>Weight</dt><dd>650 kg</dd></div><div><dt>Lead time</dt><dd>8–10 weeks</dd></div></dl>
           <p class="piece__copy reveal-up">Bright white marble threaded with grey, carved into a thin, sweeping bowl. The most architectural vessel of the collection — it belongs to glass houses and high, clean light.</p>
           <div class="piece__angles reveal-up"><span class="piece__angles-label">In situ — three views</span><div class="piece__angles-row"><img class="js-lb" src="assets/img/calacatta-env-1-sm.jpg" data-full="assets/img/calacatta-env-1.jpg" data-cap="Calacatta · White Calacatta Marble · Bel Air" alt="Calacatta in White Calacatta Marble — Bel Air" loading="lazy"/><img class="js-lb" src="assets/img/calacatta-env-2-sm.jpg" data-full="assets/img/calacatta-env-2.jpg" data-cap="Calacatta · White Calacatta Marble · Profile" alt="Calacatta in White Calacatta Marble — Profile" loading="lazy"/><img class="js-lb" src="assets/img/calacatta-env-3-sm.jpg" data-full="assets/img/calacatta-env-3.jpg" data-cap="Calacatta · White Calacatta Marble · Basin detail" alt="Calacatta in White Calacatta Marble — Basin detail" loading="lazy"/></div></div>
           <span class="piece__loc reveal-up">Bel Air · California</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$5,200</span><span class="piece__terms">USD · made to order · client-arranged freight</span></div>
-            <button class="btn btn--solid piece__buy" data-sku="EM-006" data-piece="Calacatta" data-material="White Calacatta Marble" data-price="5200" data-cursor="hover"><span>Acquire</span></button>
+            <button class="btn btn--solid piece__buy" data-freight="1600" data-sku="EM-006" data-piece="Calacatta" data-material="White Calacatta Marble" data-price="5200" data-cursor="hover"><span>Acquire</span></button>
           </div>
         </div>
       </article>
@@ -377,12 +401,46 @@
       </div>
     </section>
 
+    <!-- ============ DETAILS / SHIPPING & CARE ============ -->
+    <section class="details section" id="details">
+      <div class="details__head">
+        <p class="section__index reveal-up">06 — Details</p>
+        <h2 class="display reveal-up">Shipping,<br/>care &amp; ownership.</h2>
+      </div>
+      <div class="details__grid reveal-stagger">
+        <div class="detail">
+          <h4>Made to order</h4>
+          <p>Each vessel is carved on commission from a single block — 25 days to 18 weeks depending on the stone. Nothing is held in stock; nothing is repeated.</p>
+        </div>
+        <div class="detail">
+          <h4>Worldwide freight, paid by client</h4>
+          <p>Crated and shipped by white-glove sea freight. Indicative door-to-door freight runs <strong>$1,400–$2,800</strong> by piece and destination, arranged at cost and settled by the buyer.</p>
+        </div>
+        <div class="detail">
+          <h4>Delivery &amp; installation</h4>
+          <p>Delivered to the threshold and placed by our freight team. Plumbing is connected by your licensed installer; we provide rough-in dimensions on reservation.</p>
+        </div>
+        <div class="detail">
+          <h4>Care of the stone</h4>
+          <p>Sealed natural stone. Clean with a pH-neutral soap and soft cloth; re-seal every 12–18 months. With care, a vessel holds a century of water.</p>
+        </div>
+        <div class="detail">
+          <h4>Payment &amp; reservation</h4>
+          <p>Reserve online; a secure payment link and freight quote follow within 24 hours. Deposit terms are available for commissioned pieces.</p>
+        </div>
+        <div class="detail">
+          <h4>Guarantee</h4>
+          <p>Every piece is inspected before dispatch and insured in transit. A ten-year structural guarantee accompanies each vessel.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ INQUIRE ============ -->
     <section class="inquire" id="inquire">
       <img src="assets/img/lumen-bali-01.jpg" alt="" class="inquire__bg" aria-hidden="true" loading="lazy"/>
       <div class="inquire__veil"></div>
       <div class="inquire__inner section">
-        <p class="section__index light reveal-up">06 — Commission</p>
+        <p class="section__index light reveal-up">07 — Commission</p>
         <h2 class="inquire__title reveal-up">Begin a private<br/>commission.</h2>
         <p class="inquire__lede reveal-up">Prefer to talk before you reserve? We accept a limited number of pieces each season. Tell us about the room, the light, and the life it will hold — or acquire a vessel directly from the collection above. Freight is arranged worldwide at cost and paid by the client.</p>
 
@@ -477,6 +535,7 @@
       <h3 class="checkout__title" id="coTitle">The Monolith</h3>
       <p class="checkout__mat" id="coMat">Honey Travertine</p>
       <div class="checkout__price"><span class="checkout__amount" id="coPrice">$6,200</span><span class="checkout__unit">USD · made to order</span></div>
+      <p class="checkout__freight" id="coFreight"></p>
 
       <form id="coForm" class="checkout__form" novalidate>
         <input type="hidden" id="coSku" name="sku" />
