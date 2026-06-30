@@ -321,8 +321,45 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece__name{ font-family:var(--serif); font-weight:300; font-size:var(--fs-h3); line-height:.98; letter-spacing:-.01em; }
 .piece__mat{ display:block; font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--honey-deep); margin:.5rem 0 1.4rem; }
 .piece__copy{ color:var(--umber); opacity:.84; max-width:42ch; margin-bottom:2rem; }
-.piece__foot{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:1.4rem; }
-.piece__loc{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--honey-deep); }
+.piece__loc{ display:block; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1.4rem; }
+.piece__foot{ display:flex; align-items:flex-end; justify-content:space-between; gap:1.5rem 2rem; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:1.5rem; }
+.piece__price{ display:flex; flex-direction:column; gap:.25rem; }
+.piece__amount{ font-family:var(--serif); font-weight:300; font-size:2rem; line-height:1; color:var(--espresso); }
+.piece__terms{ font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--honey-deep); }
+.piece__buy{ padding-block:.95em; }
+
+/* =====================================================================
+   Assurance band
+   ===================================================================== */
+.assure{ background:var(--espresso); color:var(--bone); padding:clamp(2.6rem,6vh,4.4rem) var(--gut); }
+.assure__row{ max-width:var(--maxw); margin-inline:auto; display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(1.4rem,3vw,3rem); }
+.assure__no{ font-family:var(--serif); font-style:italic; font-size:1rem; color:var(--honey); }
+.assure__item h4{ font-family:var(--serif); font-weight:400; font-size:1.2rem; margin:.7rem 0 .5rem; }
+.assure__item p{ font-size:.86rem; line-height:1.55; color:rgba(244,236,224,.62); }
+
+/* =====================================================================
+   Checkout / Acquire modal
+   ===================================================================== */
+.checkout{ position:fixed; inset:0; z-index:9600; display:flex; align-items:center; justify-content:center; padding:1.2rem; background:rgba(20,14,8,.78); backdrop-filter:blur(10px); opacity:0; visibility:hidden; transition:opacity .45s var(--ease), visibility .45s; }
+.checkout.is-open{ opacity:1; visibility:visible; }
+.checkout__panel{ position:relative; width:min(620px,100%); max-height:92vh; overflow-y:auto; background:var(--bone); color:var(--umber); border-radius:6px; padding:clamp(1.8rem,4vw,3rem); box-shadow:0 40px 100px rgba(0,0,0,.45); transform:translateY(18px) scale(.99); transition:transform .5s var(--ease); }
+.checkout.is-open .checkout__panel{ transform:none; }
+.checkout__close{ position:absolute; top:1.1rem; right:1.2rem; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; font-size:1rem; transition:.35s; }
+.checkout__close:hover{ background:var(--espresso); color:var(--bone); border-color:var(--espresso); }
+.checkout__eyebrow{ font-size:.66rem; letter-spacing:.34em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:.7rem; }
+.checkout__title{ font-family:var(--serif); font-weight:300; font-size:clamp(1.9rem,4vw,2.6rem); line-height:1; }
+.checkout__mat{ font-family:var(--serif); font-style:italic; color:var(--honey-deep); margin:.3rem 0 1rem; }
+.checkout__price{ display:flex; align-items:baseline; gap:.8rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:1rem 0; margin-bottom:1.6rem; }
+.checkout__amount{ font-family:var(--serif); font-weight:300; font-size:2.2rem; color:var(--espresso); }
+.checkout__unit{ font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--honey-deep); }
+.co-row{ display:grid; grid-template-columns:1fr 1fr; gap:0 1.6rem; }
+.checkout__form .field{ margin-bottom:1.5rem; }
+.checkout__form .field input, .checkout__form .field textarea{ color:var(--umber); border-bottom-color:var(--line); font-size:1rem; }
+.checkout__form .field label{ color:rgba(58,44,28,.55); font-size:1rem; }
+.checkout__form .field input:focus + label, .checkout__form .field input:not(:placeholder-shown) + label,
+.checkout__form .field textarea:focus + label, .checkout__form .field textarea:not(:placeholder-shown) + label{ color:var(--honey-deep); }
+.checkout__terms{ font-size:.8rem; line-height:1.55; color:var(--umber); opacity:.7; margin:.2rem 0 1.4rem; }
+.checkout__terms strong{ color:var(--espresso); opacity:1; }
 
 /* =====================================================================
    Lumen spotlight — cinematic dark
@@ -352,6 +389,7 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
   .piece{ grid-template-columns:1fr; gap:1.8rem; }
   .piece--flip .piece__media{ order:0; }
   .lumen__cities{ gap:.7rem; }
+  .assure__row{ grid-template-columns:repeat(2,1fr); gap:2rem 1.6rem; }
   .nav__links{ display:none; }
   .nav__cta{ display:none; }
   .nav__burger{ display:flex; }
@@ -362,6 +400,9 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 }
 @media (max-width: 600px){
   .form__row{ grid-template-columns:1fr; }
+  .co-row{ grid-template-columns:1fr; }
+  .assure__row{ grid-template-columns:1fr; gap:1.6rem; }
+  .piece__foot{ gap:1.2rem; }
   .gallery__grid{ grid-template-columns:repeat(2,1fr); }
   .gtile--wide{ grid-column:span 2; }
   .gtile--tall{ grid-row:span 1; }
