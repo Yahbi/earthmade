@@ -57,9 +57,8 @@
     f.title.textContent = d.piece;
     f.mat.textContent = d.material;
     f.price.textContent = fmt(d.price);
-    if (f.freight) f.freight.textContent = d.freight
-      ? `+ indicative worldwide freight from ${fmt(d.freight)}, arranged at cost and paid by the client.`
-      : '';
+    if (f.freight) f.freight.textContent =
+      '+ freight & insurance from $1,900, by region — we arrange it, you pay (added at checkout).';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
