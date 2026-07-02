@@ -129,7 +129,7 @@
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!name || !emailOk){
       status.textContent = !name ? 'Please share your name.' : 'Please enter a valid email.';
-      status.style.color = '#b07d3a';
+      status.style.color = '#e0a85a';
       return;
     }
     status.style.color = '';

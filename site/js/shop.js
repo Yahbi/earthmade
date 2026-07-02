@@ -63,7 +63,7 @@
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
-    f.submit.querySelector('span').textContent = d.label === 'Reserve' ? 'Reserve this piece' : 'Reserve this piece';
+    f.submit.querySelector('span').textContent = 'Reserve this piece';
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -103,7 +103,7 @@
     const email = $('#coEmail').value.trim();
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!name || !emailOk){
-      f.status.style.color = '#e0a85a';
+      f.status.style.color = '#8a6528';
       f.status.textContent = !name ? 'Please share your name.' : 'Please enter a valid email.';
       return;
     }
@@ -135,14 +135,14 @@
         if (!res.ok) throw new Error('Network');
       } else {
         // No endpoint yet — open a prefilled email as a safety net.
-        const body = Object.entries(payload).map(([k, v]) => `${k}: ${v}`).join('%0D%0A');
+        const body = encodeURIComponent(Object.entries(payload).map(([k, v]) => `${k}: ${v}`).join('\r\n'));
         window.location.href = `mailto:${SHOP_CONFIG.ordersEmail}?subject=${encodeURIComponent(payload._subject)}&body=${body}`;
       }
       f.form.reset();
       f.status.style.color = '';
       f.status.textContent = 'Reserved. The atelier will confirm your piece and send a secure payment link within 24 hours.';
     } catch (err){
-      f.status.style.color = '#e0a85a';
+      f.status.style.color = '#8a6528';
       f.status.textContent = `Could not send — please email ${SHOP_CONFIG.ordersEmail} and we will arrange it.`;
     } finally {
       f.submit.disabled = false;
