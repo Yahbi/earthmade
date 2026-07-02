@@ -109,17 +109,6 @@
     if (e.key === 'ArrowLeft') openLb(idx - 1);
   });
 
-  /* ---------- Lazy imagery emerges from the dark ---------- */
-  document.body.classList.add('lazyfade');
-  $$('img[loading="lazy"]').forEach(img => {
-    const done = () => img.classList.add('is-loaded');
-    if (img.complete && img.naturalWidth) done();
-    else {
-      img.addEventListener('load', done, { once: true });
-      img.addEventListener('error', done, { once: true });
-    }
-  });
-
   /* ---------- Inquiry form ---------- */
   const form = $('#inquireForm'), status = $('#formStatus');
   form?.addEventListener('submit', e => {

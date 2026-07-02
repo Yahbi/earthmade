@@ -477,12 +477,5 @@ body.ready .hero__img{ animation: heroSettle 7s cubic-bezier(.16,.84,.32,1) both
 /* Reserved piece shown in the checkout */
 .checkout__img{ width:64px; height:64px; object-fit:cover; border-radius:3px; margin-bottom:1rem; display:none; }
 
-/* =====================================================================
-   Nocturne — lazy imagery emerges from the dark
-   ===================================================================== */
-/* .lazyfade is added by the same script that marks .is-loaded — stale JS therefore never hides imagery */
-body.lazyfade img[loading="lazy"]{ opacity:0; transition:opacity .7s var(--ease-soft); }
-body.lazyfade img[loading="lazy"].is-loaded{ opacity:1; }
-@media (prefers-reduced-motion: reduce){
-  body.lazyfade img[loading="lazy"]{ opacity:1 !important; }
-}
+/* Dark banners keep a dark plate while their imagery streams in */
+.lumen__bg, .inquire__bg, .interlude img{ background-color:#241b11; }
