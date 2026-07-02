@@ -111,6 +111,14 @@
       <p class="manifesto__sign reveal-up">— The Atelier, Earth Made</p>
     </section>
 
+
+    <!-- ============ INTERLUDE I ============ -->
+    <section class="interlude" aria-label="Atelier">
+      <img width="1448" height="1086" src="assets/img/desert-02.webp" alt="" loading="lazy"/>
+      <div class="interlude__veil"></div>
+      <p class="interlude__line reveal-up">Carved by hand.<br/><em>Finished by light.</em></p>
+    </section>
+
     <!-- ============ COLLECTION ============ -->
     <section class="collection section" id="collection">
       <div class="collection__intro">
@@ -118,10 +126,13 @@
         <h2 class="display reveal-up">Nine&nbsp;stones.<br/>Nine&nbsp;vessels.</h2>
         <p class="collection__note reveal-up">Each piece is a single block of one material, carved to order. We choose the stone for the room, never the room for the stone.</p>
         <p class="collection__disclaimer reveal-up">Renderings are illustrative. Every natural stone is unique — the colour, veining, translucency and exact form of your vessel will differ from the images shown, and no two are alike.</p>
+      <div class="stones reveal-up" aria-label="The stones">
+        <a class="stone" href="#piece-monolith"><img width="420" height="420" src="assets/img/swatch-monolith.jpg" alt="Travertine swatch" loading="lazy"/><span class="stone__label">001 · Travertine</span></a><a class="stone" href="#piece-lumen"><img width="420" height="420" src="assets/img/swatch-lumen.jpg" alt="Onyx swatch" loading="lazy"/><span class="stone__label">002 · Onyx</span></a><a class="stone" href="#piece-erebus"><img width="420" height="420" src="assets/img/swatch-erebus.jpg" alt="River Stone swatch" loading="lazy"/><span class="stone__label">003 · River Stone</span></a><a class="stone" href="#piece-rosa"><img width="420" height="420" src="assets/img/swatch-rosa.jpg" alt="Rosa Marble swatch" loading="lazy"/><span class="stone__label">004 · Rosa Marble</span></a><a class="stone" href="#piece-aurora"><img width="420" height="420" src="assets/img/swatch-aurora.jpg" alt="Rose Quartz swatch" loading="lazy"/><span class="stone__label">005 · Rose Quartz</span></a><a class="stone" href="#piece-calacatta"><img width="420" height="420" src="assets/img/swatch-calacatta.jpg" alt="Calacatta swatch" loading="lazy"/><span class="stone__label">006 · Calacatta</span></a><a class="stone" href="#piece-verde"><img width="420" height="420" src="assets/img/swatch-verde.jpg" alt="Green Onyx swatch" loading="lazy"/><span class="stone__label">007 · Green Onyx</span></a><a class="stone" href="#piece-nero"><img width="420" height="420" src="assets/img/swatch-nero.jpg" alt="Marquina swatch" loading="lazy"/><span class="stone__label">008 · Marquina</span></a><a class="stone" href="#piece-lignum"><img width="420" height="420" src="assets/img/swatch-lignum.jpg" alt="Petrified Wood swatch" loading="lazy"/><span class="stone__label">009 · Petrified Wood</span></a>
+      </div>
       </div>
 
       <!-- 001 Monolith -->
-      <article class="piece" id="piece-monolith">
+      <article class="piece" id="piece-monolith" data-no="001">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-monolith.jpg" data-full="assets/img/studio-monolith.jpg" data-cap="The Monolith · Honey Travertine — Atelier Study" alt="The Monolith studio render in Honey Travertine" loading="lazy"/>
         </div>
@@ -135,13 +146,13 @@
           <span class="piece__loc reveal-up">Beverly Hills · Joshua Tree · Miami</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$16,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1400" data-sku="EM-001" data-piece="The Monolith" data-material="Honey Travertine" data-price="16000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1400" data-sku="EM-001" data-piece="The Monolith" data-material="Honey Travertine" data-price="16000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
 
       <!-- 002 Lumen -->
-      <article class="piece piece--flip" id="piece-lumen">
+      <article class="piece piece--flip" id="piece-lumen" data-no="002">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-lumen.jpg" data-full="assets/img/studio-lumen.jpg" data-cap="Lumen · Illuminated Onyx — Atelier Study" alt="Lumen studio render in Illuminated Onyx" loading="lazy"/>
         </div>
@@ -155,13 +166,13 @@
           <span class="piece__loc reveal-up">Tokyo · New York · Bali</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$24,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1500" data-sku="EM-002" data-piece="Lumen" data-material="Illuminated Onyx" data-price="24000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1500" data-sku="EM-002" data-piece="Lumen" data-material="Illuminated Onyx" data-price="24000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
 
       <!-- 003 Erebus -->
-      <article class="piece" id="piece-erebus">
+      <article class="piece" id="piece-erebus" data-no="003">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-erebus.jpg" data-full="assets/img/studio-erebus.jpg" data-cap="Erebus · Black River Stone — Atelier Study" alt="Erebus studio render in Black River Stone" loading="lazy"/>
         </div>
@@ -175,13 +186,13 @@
           <span class="piece__loc reveal-up">The Garden House</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$16,500</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="2600" data-sku="EM-003" data-piece="Erebus" data-material="Black River Stone" data-price="16500"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="2600" data-sku="EM-003" data-piece="Erebus" data-material="Black River Stone" data-price="16500"><span>Reserve</span></button>
           </div>
         </div>
       </article>
 
       <!-- 004 Rosa -->
-      <article class="piece piece--flip" id="piece-rosa">
+      <article class="piece piece--flip" id="piece-rosa" data-no="004">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-rosa.jpg" data-full="assets/img/studio-rosa.jpg" data-cap="Rosa · Rosa Marble — Atelier Study" alt="Rosa studio render in Rosa Marble" loading="lazy"/>
         </div>
@@ -195,13 +206,13 @@
           <span class="piece__loc reveal-up">Mediterranean · Miami</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$17,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1600" data-sku="EM-004" data-piece="Rosa" data-material="Rosa Marble" data-price="17000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1600" data-sku="EM-004" data-piece="Rosa" data-material="Rosa Marble" data-price="17000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
 
       <!-- 005 Aurora -->
-      <article class="piece" id="piece-aurora">
+      <article class="piece" id="piece-aurora" data-no="005">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-aurora.jpg" data-full="assets/img/studio-aurora.jpg" data-cap="Aurora · Raw Rose Quartz — Atelier Study" alt="Aurora studio render in Raw Rose Quartz" loading="lazy"/>
           <span class="piece__rare">Rarest · by commission only</span>
@@ -216,13 +227,13 @@
           <span class="piece__loc reveal-up">Mojave Desert · subject to the stone</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$78,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="2800" data-sku="EM-005" data-piece="Aurora" data-material="Raw Rose Quartz" data-price="78000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="2800" data-sku="EM-005" data-piece="Aurora" data-material="Raw Rose Quartz" data-price="78000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
 
       <!-- 006 Calacatta -->
-      <article class="piece piece--flip" id="piece-calacatta">
+      <article class="piece piece--flip" id="piece-calacatta" data-no="006">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-calacatta.jpg" data-full="assets/img/studio-calacatta.jpg" data-cap="Calacatta · White Calacatta Marble — Atelier Study" alt="Calacatta studio render in White Calacatta Marble" loading="lazy"/>
         </div>
@@ -236,12 +247,12 @@
           <span class="piece__loc reveal-up">Bel Air · California</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$15,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1600" data-sku="EM-006" data-piece="Calacatta" data-material="White Calacatta Marble" data-price="15000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1600" data-sku="EM-006" data-piece="Calacatta" data-material="White Calacatta Marble" data-price="15000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
       <!-- 007 Verde -->
-      <article class="piece" id="piece-verde">
+      <article class="piece" id="piece-verde" data-no="007">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-verde.jpg" data-full="assets/img/studio-verde.jpg" data-cap="Verde · Green Onyx — Atelier Study" alt="Verde studio render in Green Onyx" loading="lazy"/>
         </div>
@@ -255,12 +266,12 @@
           <span class="piece__loc reveal-up">Bali · Tropical sanctuary</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$19,500</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1500" data-sku="EM-007" data-piece="Verde" data-material="Green Onyx" data-price="19500"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1500" data-sku="EM-007" data-piece="Verde" data-material="Green Onyx" data-price="19500"><span>Reserve</span></button>
           </div>
         </div>
       </article>
       <!-- 008 Nero -->
-      <article class="piece piece--flip" id="piece-nero">
+      <article class="piece piece--flip" id="piece-nero" data-no="008">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-nero.jpg" data-full="assets/img/studio-nero.jpg" data-cap="Nero · Black Marquina Marble — Atelier Study" alt="Nero studio render in Black Marquina Marble" loading="lazy"/>
         </div>
@@ -274,12 +285,12 @@
           <span class="piece__loc reveal-up">Penthouse · After dark</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$17,500</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="1600" data-sku="EM-008" data-piece="Nero" data-material="Black Marquina Marble" data-price="17500"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="1600" data-sku="EM-008" data-piece="Nero" data-material="Black Marquina Marble" data-price="17500"><span>Reserve</span></button>
           </div>
         </div>
       </article>
       <!-- 009 Lignum -->
-      <article class="piece" id="piece-lignum">
+      <article class="piece" id="piece-lignum" data-no="009">
         <div class="piece__media reveal-img">
           <img width="1000" height="1249" class="js-lb" src="assets/img/studio-lignum.jpg" data-full="assets/img/studio-lignum.jpg" data-cap="Lignum · Petrified Wood — Atelier Study" alt="Lignum studio render in Petrified Wood" loading="lazy"/>
           <span class="piece__rare">Ancient stone · by commission</span>
@@ -294,7 +305,7 @@
           <span class="piece__loc reveal-up">Desert retreat · subject to the stone</span>
           <div class="piece__foot reveal-up">
             <div class="piece__price"><span class="piece__amount">$42,000</span><span class="piece__terms">USD · Made to order</span></div>
-            <button class="btn btn--solid piece__buy" data-freight="2200" data-sku="EM-009" data-piece="Lignum" data-material="Petrified Wood" data-price="42000"><span>Reserve</span></button>
+            <button class="btn btn--line piece__buy" data-freight="2200" data-sku="EM-009" data-piece="Lignum" data-material="Petrified Wood" data-price="42000"><span>Reserve</span></button>
           </div>
         </div>
       </article>
@@ -356,6 +367,14 @@
         <div class="stat"><span class="stat__num" data-count="16">16</span><span class="stat__label">weeks by hand</span></div>
         <div class="stat"><span class="stat__num" data-count="100">100</span><span class="stat__label">years of water</span></div>
       </div>
+    </section>
+
+
+    <!-- ============ INTERLUDE II ============ -->
+    <section class="interlude" aria-label="Legacy">
+      <img width="1448" height="1086" src="assets/img/shore-01.webp" alt="" loading="lazy"/>
+      <div class="interlude__veil"></div>
+      <p class="interlude__line reveal-up">A century<br/><em>of water.</em></p>
     </section>
 
     <!-- ============ DETAILS / SHIPPING & CARE ============ -->
