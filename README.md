@@ -6,14 +6,20 @@ A luxury, single-page showcase for **Earth Made**: monolithic bathing vessels ca
 
 ## The Collection
 
-| No. | Piece | Material |
-|-----|-------|----------|
-| 001 | The Monolith | Honey Travertine |
-| 002 | Lumen | Illuminated Onyx |
-| 003 | Erebus | Black River Stone |
-| 004 | Rosa | Rosa Marble |
-| 005 | Aurora | Raw Rose Quartz |
-| 006 | Calacatta | White Calacatta Marble |
+| No. | Piece | Material | Price |
+|-----|-------|----------|-------|
+| 001 | The Monolith | Honey Travertine | $16,000 |
+| 002 | Lumen | Illuminated Onyx | $24,000 |
+| 003 | Erebus | Black River Stone | $16,500 |
+| 004 | Rosa | Rosa Marble | $17,000 |
+| 005 | Aurora | Raw Rose Quartz | $78,000 |
+| 006 | Calacatta | White Calacatta Marble | $15,000 |
+| 007 | Verde | Green Onyx | $19,500 |
+| 008 | Nero | Black Marquina Marble | $17,500 |
+| 009 | Lignum | Petrified Wood | $42,000 |
+| 010 | Alba | White Onyx | $21,000 |
+| 011 | Dune | Golden Sandstone | $15,500 |
+| 012 | Atlas | Black Granite | $15,000 |
 
 ## Pricing & commerce
 

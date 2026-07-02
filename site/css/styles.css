@@ -455,3 +455,17 @@ body.ready .hero__img{ animation: heroSettle 7s cubic-bezier(.16,.84,.32,1) both
 
 /* Hairline per-piece CTA sits on the price row baseline */
 .piece__foot .btn--line{ align-self:center; }
+
+/* =====================================================================
+   Capstone details
+   ===================================================================== */
+/* Full-bleed interlude inside a padded section (mid-collection) */
+.interlude--inset{ width:100vw; position:relative; left:50%; margin-left:-50vw; margin-block:clamp(3rem,8vh,6rem); }
+
+/* Bespoke closing line */
+.bespoke{ max-width:46ch; margin:clamp(3rem,7vh,5rem) auto 0; text-align:center;
+  font-family:var(--serif); font-weight:300; font-size:clamp(1.3rem,2.4vw,1.9rem); line-height:1.4; color:var(--espresso); }
+.bespoke em{ font-style:italic; color:var(--honey-deep); }
+
+/* Reserved piece shown in the checkout */
+.checkout__img{ width:64px; height:64px; object-fit:cover; border-radius:3px; margin-bottom:1rem; display:none; }

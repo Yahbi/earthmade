@@ -20,8 +20,8 @@
     storefrontAccessToken: '',    // Storefront API access token
     // Map each SKU to its Shopify *variant* id (number or gid):
     variants: {
-      'EM-001': '', 'EM-002': '', 'EM-003': '',
-      'EM-004': '', 'EM-005': '', 'EM-006': '',
+      'EM-001': '', 'EM-002': '', 'EM-003': '', 'EM-004': '', 'EM-005': '', 'EM-006': '',
+      'EM-007': '', 'EM-008': '', 'EM-009': '', 'EM-010': '', 'EM-011': '', 'EM-012': '',
     },
     // --- Reservation fallback ----------------------------------------
     // Create a free form at https://formspree.io pointed at your inbox,
@@ -48,12 +48,13 @@
   const f = {
     title: $('#coTitle'), mat: $('#coMat'), price: $('#coPrice'), freight: $('#coFreight'),
     sku: $('#coSku'), item: $('#coItem'), form: $('#coForm'),
-    status: $('#coStatus'), submit: $('#coSubmit'),
+    status: $('#coStatus'), submit: $('#coSubmit'), img: $('#coImg'),
   };
   let active = null;
 
   function openModal(d){
     active = d;
+    if (f.img){ if (d.img){ f.img.src = d.img; f.img.alt = d.piece; f.img.style.display = 'block'; } else { f.img.style.display = 'none'; } }
     f.title.textContent = d.piece;
     f.mat.textContent = d.material;
     f.price.textContent = (d.price && !Number.isNaN(d.price)) ? fmt(d.price) : 'Price on request';
@@ -78,6 +79,7 @@
   document.querySelectorAll('.piece__buy').forEach(btn => {
     btn.addEventListener('click', () => {
       const d = {
+        img: btn.dataset.img,
         sku: btn.dataset.sku,
         piece: btn.dataset.piece,
         material: btn.dataset.material,
