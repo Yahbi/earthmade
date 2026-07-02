@@ -1,46 +1,61 @@
 SKU,Item,Material,File,Description,Source
-EM-001,The Monolith,Honey Travertine,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-001,The Monolith,Honey Travertine,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-001,The Monolith,Honey Travertine,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-001,The Monolith,Honey Travertine,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-001,The Monolith,Honey Travertine,supplier-reference.jpg,REAL supplier product photo,HZX Stone (hzxstone.com) beige travertine
-EM-002,Lumen,Illuminated Onyx,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-002,Lumen,Illuminated Onyx,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-002,Lumen,Illuminated Onyx,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-002,Lumen,Illuminated Onyx,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-002,Lumen,Illuminated Onyx,supplier-reference.jpg,REAL supplier product photo,Lux4home onyx bathtub (lux4home.com)
-EM-003,Erebus,Black River Stone,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-003,Erebus,Black River Stone,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-003,Erebus,Black River Stone,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-003,Erebus,Black River Stone,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-003,Erebus,Black River Stone,supplier-reference.jpg,REAL supplier product photo,Lux4home FLUMEN river stone
-EM-004,Rosa,Rosa Marble,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-004,Rosa,Rosa Marble,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-004,Rosa,Rosa Marble,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-004,Rosa,Rosa Marble,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-004,Rosa,Rosa Marble,supplier-reference.jpg,REAL supplier product photo,Made-in-China pink marble bathtub listing
-EM-005,Aurora,Raw Rose Quartz,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-005,Aurora,Raw Rose Quartz,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-005,Aurora,Raw Rose Quartz,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-005,Aurora,Raw Rose Quartz,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-005,Aurora,Raw Rose Quartz,supplier-reference.jpg,REAL supplier product photo,New Home Stone (stone-tubs.com) rose quartz
-EM-006,Calacatta,White Calacatta Marble,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-006,Calacatta,White Calacatta Marble,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-006,Calacatta,White Calacatta Marble,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-006,Calacatta,White Calacatta Marble,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-006,Calacatta,White Calacatta Marble,supplier-reference.jpg,REAL supplier product photo,StarStone (Made-in-China) Calacatta
-EM-007,Verde,Green Onyx,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-007,Verde,Green Onyx,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-007,Verde,Green Onyx,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-007,Verde,Green Onyx,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-007,Verde,Green Onyx,supplier-reference.jpg,REAL supplier product photo,Everong (Made-in-China) green onyx
-EM-008,Nero,Black Marquina Marble,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-008,Nero,Black Marquina Marble,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-008,Nero,Black Marquina Marble,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-008,Nero,Black Marquina Marble,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-008,Nero,Black Marquina Marble,supplier-reference.jpg,REAL supplier product photo,Everong (Made-in-China) Nero Marquina
-EM-009,Lignum,Petrified Wood,hero-studio.jpg,Studio hero (product page main),generated (reference pipeline)
-EM-009,Lignum,Petrified Wood,in-situ-1.jpg,In-situ environment view 1,generated (reference pipeline)
-EM-009,Lignum,Petrified Wood,in-situ-2.jpg,In-situ environment view 2,generated (reference pipeline)
-EM-009,Lignum,Petrified Wood,in-situ-3.jpg,In-situ environment view 3,generated (reference pipeline)
-EM-009,Lignum,Petrified Wood,supplier-reference.jpg,REAL supplier product photo,Lux4home Petrified Wood LIGNUM
+EM-001,The Monolith,Honey Travertine,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-001,The Monolith,Honey Travertine,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-001,The Monolith,Honey Travertine,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-001,The Monolith,Honey Travertine,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-001,The Monolith,Honey Travertine,supplier-reference.jpg,REAL supplier product photo,HZX Stone beige travertine
+EM-002,Lumen,Illuminated Onyx,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-002,Lumen,Illuminated Onyx,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-002,Lumen,Illuminated Onyx,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-002,Lumen,Illuminated Onyx,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-002,Lumen,Illuminated Onyx,supplier-reference.jpg,REAL supplier product photo,Lux4home onyx
+EM-003,Erebus,Black River Stone,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-003,Erebus,Black River Stone,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-003,Erebus,Black River Stone,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-003,Erebus,Black River Stone,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-003,Erebus,Black River Stone,supplier-reference.jpg,REAL supplier product photo,Lux4home FLUMEN
+EM-004,Rosa,Rosa Marble,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-004,Rosa,Rosa Marble,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-004,Rosa,Rosa Marble,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-004,Rosa,Rosa Marble,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-004,Rosa,Rosa Marble,supplier-reference.jpg,REAL supplier product photo,Made-in-China pink marble
+EM-005,Aurora,Raw Rose Quartz,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-005,Aurora,Raw Rose Quartz,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-005,Aurora,Raw Rose Quartz,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-005,Aurora,Raw Rose Quartz,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-005,Aurora,Raw Rose Quartz,supplier-reference.jpg,REAL supplier product photo,New Home Stone rose quartz
+EM-006,Calacatta,White Calacatta Marble,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-006,Calacatta,White Calacatta Marble,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-006,Calacatta,White Calacatta Marble,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-006,Calacatta,White Calacatta Marble,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-006,Calacatta,White Calacatta Marble,supplier-reference.jpg,REAL supplier product photo,StarStone Calacatta
+EM-007,Verde,Green Onyx,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-007,Verde,Green Onyx,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-007,Verde,Green Onyx,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-007,Verde,Green Onyx,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-007,Verde,Green Onyx,supplier-reference.jpg,REAL supplier product photo,Everong green onyx
+EM-008,Nero,Black Marquina Marble,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-008,Nero,Black Marquina Marble,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-008,Nero,Black Marquina Marble,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-008,Nero,Black Marquina Marble,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-008,Nero,Black Marquina Marble,supplier-reference.jpg,REAL supplier product photo,Everong Nero Marquina
+EM-009,Lignum,Petrified Wood,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-009,Lignum,Petrified Wood,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-009,Lignum,Petrified Wood,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-009,Lignum,Petrified Wood,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-009,Lignum,Petrified Wood,supplier-reference.jpg,REAL supplier product photo,Lux4home LIGNUM
+EM-010,Alba,White Onyx,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-010,Alba,White Onyx,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-010,Alba,White Onyx,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-010,Alba,White Onyx,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-010,Alba,White Onyx,supplier-reference.jpg,REAL supplier product photo,Cotrustone white onyx (Made-in-China)
+EM-011,Dune,Golden Sandstone,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-011,Dune,Golden Sandstone,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-011,Dune,Golden Sandstone,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-011,Dune,Golden Sandstone,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-011,Dune,Golden Sandstone,supplier-reference.jpg,REAL supplier product photo,Made-in-China sandstone listing
+EM-012,Atlas,Black Granite,hero-studio.jpg,Studio hero,generated (reference pipeline)
+EM-012,Atlas,Black Granite,in-situ-1.jpg,In-situ view 1,generated (reference pipeline)
+EM-012,Atlas,Black Granite,in-situ-2.jpg,In-situ view 2,generated (reference pipeline)
+EM-012,Atlas,Black Granite,in-situ-3.jpg,In-situ view 3,generated (reference pipeline)
+EM-012,Atlas,Black Granite,supplier-reference.jpg,REAL supplier product photo,Made-in-China natural granite listing
