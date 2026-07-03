@@ -55,14 +55,16 @@
   }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
   $$('.reveal-up, .reveal-img, .reveal-stagger').forEach(el => io.observe(el));
 
-  /* ---------- Cinematic drift: animate only on-screen stages ---------- */
+  /* ---------- Cinematic settle: play once when a full-bleed layer reveals ---------- */
   if (!reduced){
-    const stages = $$('.piece__stage');
-    if (stages.length){
+    const settlers = $$('.piece__stage, .interlude, .lumen, .inquire');
+    if (settlers.length){
       const kb = new IntersectionObserver((entries) => {
-        entries.forEach(e => e.target.classList.toggle('kb', e.isIntersecting));
-      }, { rootMargin: '10% 0px 10% 0px' });
-      stages.forEach(s => kb.observe(s));
+        entries.forEach(e => {
+          if (e.isIntersecting){ e.target.classList.add('kb'); kb.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -12% 0px' });
+      settlers.forEach(s => kb.observe(s));
     }
   }
 
@@ -73,7 +75,7 @@
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         const el = e.target, target = +el.dataset.count;
-        if (reduced){ el.textContent = target; obs.unobserve(el); return; }
+        if (reduced || target <= 1){ el.textContent = target; obs.unobserve(el); return; }
         const dur = 1200, t0 = performance.now();
         (function step(now){
           const k = Math.min(1, (now - t0) / dur);
@@ -132,8 +134,23 @@
       status.style.color = '#e0a85a';
       return;
     }
+    // Deliver the enquiry. A prefilled email is the fallback until a form endpoint is wired.
+    const ORDERS_EMAIL = 'quintessential.international@gmail.com';
+    const piece = $('#material')?.value?.trim();
+    const city = $('#location')?.value?.trim();
+    const msg = $('#message')?.value?.trim();
+    const lines = [
+      `Enquiry from ${name}.`, '',
+      `Name:   ${name}`,
+      `Email:  ${email}`,
+      city ? `City:   ${city}` : null,
+      piece ? `Piece:  ${piece}` : null,
+      '', (msg || '(no message)'), '', 'Sent from earthmade.co',
+    ].filter(v => v !== null);
+    const subject = `Earth Made — Private enquiry${piece ? ': ' + piece : ''}`;
+    window.location.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\r\n'))}`;
     status.style.color = '';
-    status.textContent = 'Thank you — the atelier will be in touch within two days.';
+    status.textContent = 'Thank you — your message is opening in your mail app. The atelier replies within two days.';
     form.reset();
   });
 })();

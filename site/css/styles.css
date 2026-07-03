@@ -274,13 +274,13 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece{ margin:0 0 clamp(7rem,16vh,12rem); }
 .piece:last-of-type{ margin-bottom:0; }
 .piece__stage{ width:100vw; position:relative; left:50%; margin-left:-50vw; overflow:hidden; }
-.piece__stage img{ width:100%; height:clamp(480px, 94svh, 980px); object-fit:cover; transform:scale(1.06); will-change:transform; }
-/* Cinematic Ken Burns drift — subtle, alive, gated to on-screen stages by JS (.kb) */
-@keyframes kb-a{ from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.15) translate(-1.6%,-1.1%); } }
-@keyframes kb-b{ from{ transform:scale(1.15) translate(1.6%,1.1%); } to{ transform:scale(1.06) translate(0,0); } }
-.piece__stage.kb img{ animation:kb-a 30s ease-in-out infinite alternate; }
-.piece:nth-of-type(even) .piece__stage.kb img{ animation-name:kb-b; }
+.piece__stage img{ width:100%; height:clamp(480px, 94svh, 980px); object-fit:cover; transform:scale(1.045); }
+/* One-shot settle on reveal (.kb added once) — the vessel comes to rest and holds still */
+.piece__stage.kb img{ animation: settle 7s cubic-bezier(.16,.84,.32,1) both; }
 @media (prefers-reduced-motion: reduce){ .piece__stage img{ animation:none !important; transform:none; } }
+/* Faint film grain — breaks the too-clean digital surface, reads as photographed */
+.piece__stage::before{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .piece__rare{ position:absolute; top:1.4rem; left:1.6rem; z-index:2; background:rgba(28,21,13,.55); backdrop-filter:blur(6px); color:var(--sand); font-size:.62rem; letter-spacing:var(--track-label); text-transform:uppercase; padding:.55em 1.1em; border-radius:100px; }
 .piece__placard{ max-width:54rem; margin:clamp(2.8rem,6vh,4.4rem) auto 0; padding-inline:var(--gut); text-align:center; }
 .piece__no{ display:block; font-size:.66rem; letter-spacing:.34em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1.2rem; }
@@ -441,15 +441,12 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 
 /* Hero — one slow cinematic settle (no loop, no parallax) */
 @keyframes heroEmerge{ from{ opacity:0; } to{ opacity:1; } }
-/* Continuous cinematic drift across every full-bleed image — the whole site breathes */
-@keyframes bgDrift{ from{ transform:scale(1.04) translate(0,0); } to{ transform:scale(1.12) translate(-1.5%,-1%); } }
-@keyframes bgDriftAlt{ from{ transform:scale(1.12) translate(1.5%,1%); } to{ transform:scale(1.04) translate(0,0); } }
-body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, bgDrift 34s ease-in-out infinite alternate; }
-.hero__img, .interlude img, .lumen__bg, .inquire__bg{ will-change:transform; }
-.interlude img{ transform:scale(1.04); animation: bgDrift 32s ease-in-out infinite alternate; }
-.interlude--inset img{ animation-name: bgDriftAlt; }
-.lumen__bg{ transform:scale(1.04); animation: bgDriftAlt 40s ease-in-out infinite alternate; }
-.inquire__bg{ transform:scale(1.04); animation: bgDrift 42s ease-in-out infinite alternate; }
+/* One-shot cinematic SETTLE — the image eases to rest once, then the stone is still.
+   Plays on reveal via .kb (added once by IntersectionObserver), never loops. */
+@keyframes settle{ from{ transform:scale(1.045); } to{ transform:scale(1); } }
+body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, settle 8s cubic-bezier(.16,.84,.32,1) both; }
+.interlude img, .lumen__bg, .inquire__bg{ transform:scale(1.045); }
+.interlude.kb img, .lumen.kb .lumen__bg, .inquire.kb .inquire__bg{ animation: settle 8s cubic-bezier(.16,.84,.32,1) both; }
 @media (prefers-reduced-motion: reduce){
   body.ready .hero__img, .interlude img, .lumen__bg, .inquire__bg{ animation:none; transform:none; }
 }
@@ -494,3 +491,30 @@ body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, bgDrift
 
 /* Dark banners keep a dark plate while their imagery streams in */
 .lumen__bg, .inquire__bg, .interlude img{ background-color:#241b11; }
+
+/* =====================================================================
+   Launch audit — accent restraint, hierarchy, legibility
+   ===================================================================== */
+/* Honey reserved for chapter marks, material lines & hover; demote workaday labels */
+.nav__brand-sub{ color:currentColor; opacity:.6; }
+.piece__no, .piece__spec dt, .piece__loc, .piece__angles-label{ color:var(--umber); opacity:.6; }
+.craft__step-no{ color:var(--umber); opacity:.55; }
+.manifesto__sign{ color:var(--umber); opacity:.6; }
+.footer__label{ color:rgba(244,236,224,.5); }
+
+/* Grail pieces — Aurora ($78k) & Lignum ($42k) break the catalogue metronome */
+#piece-aurora .piece__stage img,
+#piece-lignum .piece__stage img{ height:clamp(560px, 100svh, 1100px); }
+#piece-aurora .piece__name,
+#piece-lignum .piece__name{ font-size:clamp(3.2rem, 6.5vw, 6rem); }
+#piece-aurora .piece__placard,
+#piece-lignum .piece__placard{ margin-top:clamp(3.4rem,7vh,5.5rem); }
+#piece-aurora .piece__mat,
+#piece-lignum .piece__mat{ font-size:1.4rem; }
+
+/* Reserve modal shows the actual vessel, larger */
+.checkout__img{ width:140px; height:175px; aspect-ratio:4/5; object-fit:cover; border-radius:3px; margin-bottom:1.2rem; }
+
+/* Scarcity line under the collection intro */
+.collection__scarcity{ max-width:44ch; margin:1.4rem auto 0; font-family:var(--serif); font-style:italic; font-weight:300;
+  font-size:clamp(1rem,1.6vw,1.2rem); line-height:1.5; color:var(--honey-deep); }

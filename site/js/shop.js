@@ -52,8 +52,13 @@
   };
   let active = null;
 
+  let lastFocus = null;
+  const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
+  const main = document.querySelector('#top');
+
   function openModal(d){
     active = d;
+    lastFocus = document.activeElement;
     if (f.img){ if (d.img){ f.img.src = d.img; f.img.alt = d.piece; f.img.style.display = 'block'; } else { f.img.style.display = 'none'; } }
     f.title.textContent = d.piece;
     f.mat.textContent = d.material;
@@ -67,13 +72,25 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    main?.setAttribute('inert', '');
     setTimeout(() => $('#coName')?.focus(), 360);
   }
   function closeModal(){
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    main?.removeAttribute('inert');
+    lastFocus?.focus?.();
   }
+  // Focus trap while the reservation modal is open
+  modal?.addEventListener('keydown', e => {
+    if (e.key !== 'Tab' || !modal.classList.contains('is-open')) return;
+    const items = [...modal.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
 
   // Wire Acquire buttons
   document.querySelectorAll('.piece__buy').forEach(btn => {
@@ -134,8 +151,24 @@
         });
         if (!res.ok) throw new Error('Network');
       } else {
-        // No endpoint yet — open a prefilled email as a safety net.
-        const body = encodeURIComponent(Object.entries(payload).map(([k, v]) => `${k}: ${v}`).join('\r\n'));
+        // No endpoint yet — open a prefilled, human-readable email as a safety net.
+        const lines = [
+          `I would like to reserve ${active.piece} in ${f.item.value.split(' — ')[1] || ''}.`,
+          '',
+          `Piece:   ${active.piece} — ${active.material}`,
+          `SKU:     ${active.sku}`,
+          `Price:   ${fmt(active.price)} USD (made to order)`,
+          '',
+          `Name:    ${name}`,
+          `Email:   ${email}`,
+          `Phone:   ${payload.phone || '—'}`,
+          `Deliver: ${payload.delivery_city || '—'}`,
+          `Address: ${payload.shipping_address || '—'}`,
+          `Notes:   ${payload.notes || '—'}`,
+          '',
+          'Sent from earthmade.co',
+        ];
+        const body = encodeURIComponent(lines.join('\r\n'));
         window.location.href = `mailto:${SHOP_CONFIG.ordersEmail}?subject=${encodeURIComponent(payload._subject)}&body=${body}`;
       }
       f.form.reset();
