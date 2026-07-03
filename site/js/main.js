@@ -55,6 +55,17 @@
   }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
   $$('.reveal-up, .reveal-img, .reveal-stagger').forEach(el => io.observe(el));
 
+  /* ---------- Cinematic drift: animate only on-screen stages ---------- */
+  if (!reduced){
+    const stages = $$('.piece__stage');
+    if (stages.length){
+      const kb = new IntersectionObserver((entries) => {
+        entries.forEach(e => e.target.classList.toggle('kb', e.isIntersecting));
+      }, { rootMargin: '10% 0px 10% 0px' });
+      stages.forEach(s => kb.observe(s));
+    }
+  }
+
   /* ---------- Stat counters ---------- */
   const stats = $$('.stat__num[data-count]');
   if (stats.length){

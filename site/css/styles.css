@@ -274,7 +274,13 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 .piece{ margin:0 0 clamp(7rem,16vh,12rem); }
 .piece:last-of-type{ margin-bottom:0; }
 .piece__stage{ width:100vw; position:relative; left:50%; margin-left:-50vw; overflow:hidden; }
-.piece__stage img{ width:100%; height:clamp(480px, 94svh, 980px); object-fit:cover; }
+.piece__stage img{ width:100%; height:clamp(480px, 94svh, 980px); object-fit:cover; transform:scale(1.06); will-change:transform; }
+/* Cinematic Ken Burns drift — subtle, alive, gated to on-screen stages by JS (.kb) */
+@keyframes kb-a{ from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.15) translate(-1.6%,-1.1%); } }
+@keyframes kb-b{ from{ transform:scale(1.15) translate(1.6%,1.1%); } to{ transform:scale(1.06) translate(0,0); } }
+.piece__stage.kb img{ animation:kb-a 30s ease-in-out infinite alternate; }
+.piece:nth-of-type(even) .piece__stage.kb img{ animation-name:kb-b; }
+@media (prefers-reduced-motion: reduce){ .piece__stage img{ animation:none !important; transform:none; } }
 .piece__rare{ position:absolute; top:1.4rem; left:1.6rem; z-index:2; background:rgba(28,21,13,.55); backdrop-filter:blur(6px); color:var(--sand); font-size:.62rem; letter-spacing:var(--track-label); text-transform:uppercase; padding:.55em 1.1em; border-radius:100px; }
 .piece__placard{ max-width:54rem; margin:clamp(2.8rem,6vh,4.4rem) auto 0; padding-inline:var(--gut); text-align:center; }
 .piece__no{ display:block; font-size:.66rem; letter-spacing:.34em; text-transform:uppercase; color:var(--honey-deep); margin-bottom:1.2rem; }
