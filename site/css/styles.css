@@ -440,10 +440,19 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 [id]{ scroll-margin-top: 96px; }
 
 /* Hero — one slow cinematic settle (no loop, no parallax) */
-@keyframes heroSettle{ from{ transform:scale(1.045); } to{ transform:scale(1); } }
 @keyframes heroEmerge{ from{ opacity:0; } to{ opacity:1; } }
-body.ready .hero__img{ animation: heroSettle 7s cubic-bezier(.16,.84,.32,1) both, heroEmerge 1.2s var(--ease-soft) both; }
-@media (prefers-reduced-motion: reduce){ body.ready .hero__img{ animation:none; } }
+/* Continuous cinematic drift across every full-bleed image — the whole site breathes */
+@keyframes bgDrift{ from{ transform:scale(1.04) translate(0,0); } to{ transform:scale(1.12) translate(-1.5%,-1%); } }
+@keyframes bgDriftAlt{ from{ transform:scale(1.12) translate(1.5%,1%); } to{ transform:scale(1.04) translate(0,0); } }
+body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, bgDrift 34s ease-in-out infinite alternate; }
+.hero__img, .interlude img, .lumen__bg, .inquire__bg{ will-change:transform; }
+.interlude img{ transform:scale(1.04); animation: bgDrift 32s ease-in-out infinite alternate; }
+.interlude--inset img{ animation-name: bgDriftAlt; }
+.lumen__bg{ transform:scale(1.04); animation: bgDriftAlt 40s ease-in-out infinite alternate; }
+.inquire__bg{ transform:scale(1.04); animation: bgDrift 42s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce){
+  body.ready .hero__img, .interlude img, .lumen__bg, .inquire__bg{ animation:none; transform:none; }
+}
 
 /* Centered chapter heads */
 .craft__head, .details__head{ text-align:center; margin-inline:auto; }
