@@ -518,3 +518,17 @@ body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, settle 
 /* Scarcity line under the collection intro */
 .collection__scarcity{ max-width:44ch; margin:1.4rem auto 0; font-family:var(--serif); font-style:italic; font-weight:300;
   font-size:clamp(1rem,1.6vw,1.2rem); line-height:1.5; color:var(--honey-deep); }
+
+/* =====================================================================
+   Provenance — real photographs (authenticity proof)
+   ===================================================================== */
+.provenance__head{ text-align:center; margin-inline:auto; max-width:60rem; }
+.provenance__note{ max-width:56ch; margin:1.6rem auto 0; color:var(--umber); opacity:.8; }
+.provenance__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(.7rem,1.4vw,1.2rem); margin-top:clamp(2.6rem,6vh,4.5rem); }
+.prov{ display:flex; flex-direction:column; gap:.75rem; }
+.prov img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; cursor:pointer; transition:opacity .4s var(--ease), transform .5s var(--ease); }
+.prov:hover img{ opacity:.92; transform:translateY(-3px); }
+.prov figcaption{ font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--umber); opacity:.62; line-height:1.5; }
+.prov figcaption em{ font-style:italic; text-transform:none; letter-spacing:.01em; color:var(--honey-deep); opacity:.9; }
+@media (max-width:1024px){ .provenance__grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:600px){ .provenance__grid{ grid-template-columns:repeat(2,1fr); } }
