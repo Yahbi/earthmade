@@ -26,7 +26,7 @@
     // --- Reservation fallback ----------------------------------------
     // Create a free form at https://formspree.io (or Basin) pointed at your private inbox
     // and paste its endpoint here. Your address is NEVER written into this file.
-    formEndpoint: '',
+    formEndpoint: 'https://formspree.io/f/mvzeneok',
     // Orders are delivered by the form endpoint above. No address is exposed in this file.
   };
 
