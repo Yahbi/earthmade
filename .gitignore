@@ -8,3 +8,8 @@
 .DS_Store
 node_modules/
 masters-4k/
+
+# operator working files — never publish (supplier identities, reference photos)
+catalogue/
+refs/
+masters-4k/
