@@ -502,15 +502,24 @@ body.ready .hero__img{ animation: heroEmerge 1.3s var(--ease-soft) both, settle 
 .manifesto__sign{ color:var(--umber); opacity:.6; }
 .footer__label{ color:rgba(244,236,224,.5); }
 
-/* Grail pieces — Aurora ($78k) & Lignum ($42k) break the catalogue metronome */
-#piece-aurora .piece__stage img,
-#piece-lignum .piece__stage img{ height:clamp(560px, 100svh, 1100px); }
-#piece-aurora .piece__name,
-#piece-lignum .piece__name{ font-size:clamp(3.2rem, 6.5vw, 6rem); }
-#piece-aurora .piece__placard,
-#piece-lignum .piece__placard{ margin-top:clamp(3.4rem,7vh,5.5rem); }
-#piece-aurora .piece__mat,
-#piece-lignum .piece__mat{ font-size:1.4rem; }
+/* Grail piece — Aeon, the rarest material in the collection, breaks the metronome */
+#piece-aeon .piece__stage img{ height:clamp(560px, 100svh, 1100px); }
+#piece-aeon .piece__name{ font-size:clamp(3.2rem, 6.5vw, 6rem); }
+#piece-aeon .piece__placard{ margin-top:clamp(3.4rem,7vh,5.5rem); }
+#piece-aeon .piece__mat{ font-size:1.4rem; }
+
+/* Terms acceptance — the consent record behind the final-sale position */
+.checkout__accept{
+  display:flex; gap:.7rem; align-items:flex-start;
+  margin:0 0 1.3rem; cursor:pointer;
+  font-size:.78rem; line-height:1.55; color:var(--ink-70, #4a4a46);
+}
+.checkout__accept input{
+  flex:0 0 auto; width:16px; height:16px; margin-top:.15rem; cursor:pointer;
+  accent-color:var(--honey-deep, #a9803f);
+}
+.checkout__accept a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+.checkout__accept input:focus-visible{ outline:2px solid var(--honey-deep, #a9803f); outline-offset:2px; }
 
 /* Reserve modal shows the actual vessel, larger */
 .checkout__img{ width:140px; height:175px; aspect-ratio:4/5; object-fit:cover; border-radius:3px; margin-bottom:1.2rem; }
@@ -899,8 +908,15 @@ body.ready .hero__trust{ opacity:1; transform:none; }
   font-family:var(--grotesk); font-style:normal; font-weight:500;
   font-size:.63rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-45);
 }
-.look__copy{ margin:1rem 0 1.3rem; max-width:42ch; font-size:.9rem; line-height:1.55;
+.look__copy{ margin:1rem 0 .85rem; max-width:42ch; font-size:.9rem; line-height:1.55;
   color:var(--ink-70); opacity:1; }
+/* Buyer-critical facts: a vessel this size has to fit through a door */
+.look__spec{
+  margin:0 0 1.35rem; max-width:42ch;
+  font-family:var(--grotesk); font-size:.7rem; font-weight:400;
+  letter-spacing:.055em; text-transform:uppercase; line-height:1.7;
+  color:var(--ink-45);
+}
 .look__foot{ border-top:none; padding-top:0; justify-content:flex-start; gap:2.2rem; align-items:baseline; }
 .look__price{ font-family:var(--grotesk); font-weight:400; font-size:.92rem; letter-spacing:.02em; color:var(--ink); }
 .look--feature .look__name{ font-size:clamp(2.4rem,4.4vw,4.4rem); }

@@ -110,7 +110,18 @@
     document.body.style.overflow = '';
     lastFocus?.focus?.();
   }
-  tiles.forEach((t, i) => t.addEventListener('click', () => openLb(i)));
+  // Each tile is a real control: focusable, announced, and operable by keyboard
+  tiles.forEach((t, i) => {
+    t.addEventListener('click', () => openLb(i));
+    t.setAttribute('tabindex', '0');
+    t.setAttribute('role', 'button');
+    if (!t.hasAttribute('aria-label')){
+      t.setAttribute('aria-label', `View larger: ${items[i].cap || t.alt || 'image'}`);
+    }
+    t.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(i); }
+    });
+  });
   $('#lbClose')?.addEventListener('click', closeLb);
   $('#lbPrev')?.addEventListener('click', () => openLb(idx - 1));
   $('#lbNext')?.addEventListener('click', () => openLb(idx + 1));

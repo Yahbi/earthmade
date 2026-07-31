@@ -63,7 +63,7 @@
     f.mat.textContent = d.material;
     f.price.textContent = (d.price && !Number.isNaN(d.price)) ? fmt(d.price) : 'Price on request';
     if (f.freight) f.freight.textContent =
-      'This price includes worldwide freight, crating, full transit insurance and all import duty and customs charges. We are the importer of record — nothing further is payable on delivery. Where we are registered to collect it, state sales tax is shown at checkout.';
+      'This price includes freight, crating, full transit insurance and all import duty and customs charges. We are the importer of record — nothing further is payable on delivery. Where we are registered to collect it, state sales tax is shown at checkout.';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
@@ -118,9 +118,12 @@
     const name = $('#coName').value.trim();
     const email = $('#coEmail').value.trim();
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!name || !emailOk){
+    const accepted = $('#coAccept')?.checked;
+    if (!name || !emailOk || !accepted){
       f.status.style.color = '#8a6528';
-      f.status.textContent = !name ? 'Please share your name.' : 'Please enter a valid email.';
+      f.status.textContent = !name ? 'Please share your name.'
+        : !emailOk ? 'Please enter a valid email.'
+        : 'Please confirm you accept the terms of sale.';
       return;
     }
     f.status.style.color = '';
@@ -139,6 +142,9 @@
       shipping_address: $('#coAddr').value.trim(),
       notes: $('#coNote').value.trim(),
       shipping_terms: 'All-in: freight, crating, full transit insurance, and all import duty/customs carried by Earth Made as importer of record. State sales tax added at checkout where registered. Delivery to ground-floor threshold; rigging excluded.',
+      // Consent record — the evidence trail behind the final-sale position
+      terms_accepted: 'YES — buyer ticked acceptance of the made-to-order final-sale terms',
+      terms_accepted_at: new Date().toISOString(),
     };
 
     try {
