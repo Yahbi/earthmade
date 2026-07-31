@@ -63,7 +63,7 @@
     f.mat.textContent = d.material;
     f.price.textContent = (d.price && !Number.isNaN(d.price)) ? fmt(d.price) : 'Price on request';
     if (f.freight) f.freight.textContent =
-      'Worldwide freight, crating and all-risk transit insurance are included in this price. Delivered to a US address there is nothing further to pay; outside the US, import duty and VAT are levied by your own customs authority.';
+      'This price includes worldwide freight, crating, full transit insurance and all import duty, customs and taxes. We are the importer of record — nothing further is payable on delivery.';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
@@ -138,7 +138,7 @@
       delivery_city: $('#coCity').value.trim(),
       shipping_address: $('#coAddr').value.trim(),
       notes: $('#coNote').value.trim(),
-      shipping_terms: 'Price includes worldwide freight, crating and all-risk transit insurance. US: Earth Made is importer of record, duty included. Non-US: client settles import duty/VAT with their own authority.',
+      shipping_terms: 'All-in: freight, crating, full transit insurance, and all duty/customs/taxes carried by Earth Made as importer of record. Delivery to ground-floor threshold; rigging excluded.',
     };
 
     try {
