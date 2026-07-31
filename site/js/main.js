@@ -124,7 +124,7 @@
 
   /* ---------- Inquiry form ---------- */
   const form = $('#inquireForm'), status = $('#formStatus');
-  form?.addEventListener('submit', e => {
+  form?.addEventListener('submit', async e => {
     e.preventDefault();
     const name = $('#name').value.trim();
     const email = $('#email').value.trim();
@@ -134,23 +134,28 @@
       status.style.color = '#e0a85a';
       return;
     }
-    // Deliver the enquiry. A prefilled email is the fallback until a form endpoint is wired.
-    const ORDERS_EMAIL = 'quintessential.international@gmail.com';
+    // Deliver the enquiry via the form endpoint. No address appears in this file.
+    const ENDPOINT = window.EARTHMADE_FORM_ENDPOINT || '';
     const piece = $('#material')?.value?.trim();
     const city = $('#location')?.value?.trim();
     const msg = $('#message')?.value?.trim();
-    const lines = [
-      `Enquiry from ${name}.`, '',
-      `Name:   ${name}`,
-      `Email:  ${email}`,
-      city ? `City:   ${city}` : null,
-      piece ? `Piece:  ${piece}` : null,
-      '', (msg || '(no message)'), '', 'Sent from earthmade.co',
-    ].filter(v => v !== null);
-    const subject = `Earth Made — Private enquiry${piece ? ': ' + piece : ''}`;
-    window.location.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\r\n'))}`;
+    status.textContent = 'Sending…';
+    try {
+      if (!ENDPOINT) throw new Error('no endpoint');
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ _subject: `Earth Made — Private enquiry${piece ? ': ' + piece : ''}`,
+                               name, email, city, piece, message: msg }),
+      });
+      if (!res.ok) throw new Error('network');
+    } catch (err) {
+      status.style.color = '#8a6528';
+      status.textContent = 'We could not send that just now — please try again in a moment.';
+      return;
+    }
     status.style.color = '';
-    status.textContent = 'Thank you — your message is opening in your mail app. The atelier replies within two days.';
+    status.textContent = 'Thank you — your enquiry has reached the atelier. We reply within two working days.';
     form.reset();
   });
 })();

@@ -6,9 +6,9 @@
       set below, "Acquire" sends the buyer straight to Shopify's secure
       hosted checkout (Shopify takes payment and emails you the order).
    2) RESERVE  — until Shopify is wired, "Acquire" opens a reservation
-      panel. On submit it POSTs to FORM_ENDPOINT (e.g. a Formspree form
-      pointed at quintessential.international@gmail.com) so you are
-      notified of every order, then you send a payment link + freight quote.
+      panel. On submit it POSTs to formEndpoint (a Formspree/Basin form
+      pointed at your private inbox) so you are notified of every order,
+      then you send a payment link. No address is stored in this file.
    ===================================================================== */
 (() => {
   'use strict';
@@ -24,11 +24,10 @@
       'EM-007': '', 'EM-008': '', 'EM-009': '', 'EM-010': '', 'EM-011': '', 'EM-012': '',
     },
     // --- Reservation fallback ----------------------------------------
-    // Create a free form at https://formspree.io pointed at your inbox,
-    // then paste its endpoint here. Until then, reservations are captured
-    // locally and a prefilled email opens as a safety net.
+    // Create a free form at https://formspree.io (or Basin) pointed at your private inbox
+    // and paste its endpoint here. Your address is NEVER written into this file.
     formEndpoint: '',
-    ordersEmail: 'quintessential.international@gmail.com',
+    // Orders are delivered by the form endpoint above. No address is exposed in this file.
   };
 
   const fmt = n => '$' + Number(n).toLocaleString('en-US');
@@ -151,32 +150,14 @@
         });
         if (!res.ok) throw new Error('Network');
       } else {
-        // No endpoint yet — open a prefilled, human-readable email as a safety net.
-        const lines = [
-          `I would like to reserve ${active.piece} in ${f.item.value.split(' — ')[1] || ''}.`,
-          '',
-          `Piece:   ${active.piece} — ${active.material}`,
-          `SKU:     ${active.sku}`,
-          `Price:   ${fmt(active.price)} USD (made to order)`,
-          '',
-          `Name:    ${name}`,
-          `Email:   ${email}`,
-          `Phone:   ${payload.phone || '—'}`,
-          `Deliver: ${payload.delivery_city || '—'}`,
-          `Address: ${payload.shipping_address || '—'}`,
-          `Notes:   ${payload.notes || '—'}`,
-          '',
-          'Sent from earthmade.co',
-        ];
-        const body = encodeURIComponent(lines.join('\r\n'));
-        window.location.href = `mailto:${SHOP_CONFIG.ordersEmail}?subject=${encodeURIComponent(payload._subject)}&body=${body}`;
+        throw new Error('No endpoint configured');
       }
       f.form.reset();
       f.status.style.color = '';
       f.status.textContent = 'Reserved. The atelier will confirm your piece and send a secure payment link within 24 hours.';
     } catch (err){
       f.status.style.color = '#8a6528';
-      f.status.textContent = `Could not send — please email ${SHOP_CONFIG.ordersEmail} and we will arrange it.`;
+      f.status.textContent = 'We could not send that just now. Please try again in a moment, or use the enquiry form below.';
     } finally {
       f.submit.disabled = false;
     }
