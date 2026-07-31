@@ -63,7 +63,7 @@
     f.mat.textContent = d.material;
     f.price.textContent = (d.price && !Number.isNaN(d.price)) ? fmt(d.price) : 'Price on request';
     if (f.freight) f.freight.textContent =
-      'Freight & insurance are confirmed with your reservation — typically $1,900–$3,400 by region, arranged by us and paid by you.';
+      'Worldwide freight, crating and all-risk transit insurance are included in this price. Delivered to a US address there is nothing further to pay; outside the US, import duty and VAT are levied by your own customs authority.';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
@@ -138,7 +138,7 @@
       delivery_city: $('#coCity').value.trim(),
       shipping_address: $('#coAddr').value.trim(),
       notes: $('#coNote').value.trim(),
-      shipping_terms: 'Delivered & fully insured by Earth Made; regional freight confirmed with reservation, paid by client.',
+      shipping_terms: 'Price includes worldwide freight, crating and all-risk transit insurance. US: Earth Made is importer of record, duty included. Non-US: client settles import duty/VAT with their own authority.',
     };
 
     try {
