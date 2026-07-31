@@ -63,7 +63,7 @@
     f.mat.textContent = d.material;
     f.price.textContent = (d.price && !Number.isNaN(d.price)) ? fmt(d.price) : 'Price on request';
     if (f.freight) f.freight.textContent =
-      'This price includes worldwide freight, crating, full transit insurance and all import duty, customs and taxes. We are the importer of record — nothing further is payable on delivery.';
+      'This price includes worldwide freight, crating, full transit insurance and all import duty and customs charges. We are the importer of record — nothing further is payable on delivery. Where we are registered to collect it, state sales tax is shown at checkout.';
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
@@ -138,7 +138,7 @@
       delivery_city: $('#coCity').value.trim(),
       shipping_address: $('#coAddr').value.trim(),
       notes: $('#coNote').value.trim(),
-      shipping_terms: 'All-in: freight, crating, full transit insurance, and all duty/customs/taxes carried by Earth Made as importer of record. Delivery to ground-floor threshold; rigging excluded.',
+      shipping_terms: 'All-in: freight, crating, full transit insurance, and all import duty/customs carried by Earth Made as importer of record. State sales tax added at checkout where registered. Delivery to ground-floor threshold; rigging excluded.',
     };
 
     try {
