@@ -20,7 +20,7 @@
     storefrontAccessToken: '',    // Storefront API access token
     // Map each SKU to its Shopify *variant* id (number or gid):
     variants: {
-      'EM-001': '', 'EM-002': '', 'EM-003': '', 'EM-004': '', 'EM-005': '', 'EM-006': '',
+      'EM-001': '', 'EM-002': '', 'EM-003': '', 'EM-004': '', 'EM-006': '',
       'EM-007': '', 'EM-008': '', 'EM-009': '', 'EM-010': '', 'EM-011': '', 'EM-012': '',
     },
     // --- Reservation fallback ----------------------------------------
