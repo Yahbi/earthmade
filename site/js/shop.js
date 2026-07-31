@@ -15,13 +15,24 @@
   const $ = (s, c = document) => c.querySelector(s);
 
   const SHOP_CONFIG = {
-    // --- Fill these to switch on real Shopify checkout ----------------
-    shopifyDomain: '',            // e.g. 'earth-made.myshopify.com'
-    storefrontAccessToken: '',    // Storefront API access token
-    // Map each SKU to its Shopify *variant* id (number or gid):
+    // --- Real Shopify checkout ----------------------------------------
+    // Live store. Variant ids below are the real ones created in Shopify.
+    shopifyDomain: 'earthmade-stone.myshopify.com',
+
+    // MASTER SWITCH. Leave false until Shopify Payments is ACTIVATED.
+    // While false, Acquire opens the reservation form (which works today).
+    // Flipping this to true before payments are live would send buyers to a
+    // checkout that cannot take money — a worse experience than the form.
+    liveCheckout: false,
+
+    // Map each SKU to its Shopify variant id.
     variants: {
-      'EM-001': '', 'EM-002': '', 'EM-003': '', 'EM-004': '', 'EM-006': '',
-      'EM-007': '', 'EM-008': '', 'EM-009': '', 'EM-010': '', 'EM-011': '', 'EM-012': '',
+      'EM-001': '48462859141361', 'EM-002': '48462859665649',
+      'EM-003': '48462859895025', 'EM-004': '48462860026097',
+      'EM-006': '48462860550385', 'EM-007': '48462860648689',
+      'EM-008': '48462860812529', 'EM-009': '48462861074673',
+      'EM-010': '48462861172977', 'EM-011': '48462861467889',
+      'EM-012': '48462861566193',
     },
     // --- Reservation fallback ----------------------------------------
     // Create a free form at https://formspree.io (or Basin) pointed at your private inbox
@@ -34,7 +45,7 @@
 
   /* ---------- Shopify direct checkout ---------- */
   function shopifyReady(sku){
-    return SHOP_CONFIG.shopifyDomain && SHOP_CONFIG.storefrontAccessToken && SHOP_CONFIG.variants[sku];
+    return SHOP_CONFIG.liveCheckout && SHOP_CONFIG.shopifyDomain && SHOP_CONFIG.variants[sku];
   }
   function goToShopify(sku){
     // Permalink checkout: /cart/{variantId}:{qty}  → Shopify hosted checkout
