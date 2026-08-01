@@ -19,10 +19,13 @@
     // Live store. Variant ids below are the real ones created in Shopify.
     shopifyDomain: 'earthmade-stone.myshopify.com',
 
-    // MASTER SWITCH. Leave false until Shopify Payments is ACTIVATED.
+    // MASTER SWITCH. Shopify Payments is ACTIVE (verified 2026-07-31), but two
+    // gates remain before flipping this to true:
+    //   1. The storefront password must be removed (Online Store → Preferences)
+    //      — cart permalinks bounce off a password-locked store.
+    //   2. The compliance gate: customs broker + continuous bond, marine cargo
+    //      insurance, and lawyer-read policies. No money before those.
     // While false, Acquire opens the reservation form (which works today).
-    // Flipping this to true before payments are live would send buyers to a
-    // checkout that cannot take money — a worse experience than the form.
     liveCheckout: false,
 
     // Map each SKU to its Shopify variant id.
@@ -48,9 +51,16 @@
     return SHOP_CONFIG.liveCheckout && SHOP_CONFIG.shopifyDomain && SHOP_CONFIG.variants[sku];
   }
   function goToShopify(sku){
-    // Permalink checkout: /cart/{variantId}:{qty}  → Shopify hosted checkout
+    // Permalink checkout: /cart/{variantId}:{qty}  → Shopify hosted checkout.
+    // The consent record rides along as cart attributes and lands on the order —
+    // the same evidence trail the reservation form sends to Formspree.
     const v = String(SHOP_CONFIG.variants[sku]).replace(/^gid.*\//, '');
-    window.location.href = `https://${SHOP_CONFIG.shopifyDomain}/cart/${v}:1`;
+    const q = new URLSearchParams({
+      'attributes[Terms accepted]': 'YES — buyer ticked acceptance of the made-to-order final-sale terms',
+      'attributes[Terms accepted at]': new Date().toISOString(),
+      'attributes[Source]': 'earthmade marketing site',
+    });
+    window.location.href = `https://${SHOP_CONFIG.shopifyDomain}/cart/${v}:1?${q}`;
   }
 
   /* ---------- Reservation modal ---------- */
@@ -61,6 +71,9 @@
     status: $('#coStatus'), submit: $('#coSubmit'), img: $('#coImg'),
   };
   let active = null;
+  // True while the open modal is in live-checkout mode: slim consent step
+  // (terms tick only), then straight to Shopify's hosted checkout.
+  let activeLive = false;
 
   let lastFocus = null;
   const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
@@ -68,6 +81,7 @@
 
   function openModal(d){
     active = d;
+    activeLive = shopifyReady(d.sku);
     lastFocus = document.activeElement;
     if (f.img){ if (d.img){ f.img.src = d.img; f.img.alt = d.piece; f.img.style.display = 'block'; } else { f.img.style.display = 'none'; } }
     f.title.textContent = d.piece;
@@ -78,12 +92,16 @@
     f.sku.value = d.sku;
     f.item.value = `${d.piece} — ${d.material}`;
     f.status.textContent = '';
-    f.submit.querySelector('span').textContent = 'Reserve this piece';
+    // Live mode collects only consent — Shopify checkout collects the rest.
+    f.form.querySelectorAll('.co-row, .field').forEach(el => { el.style.display = activeLive ? 'none' : ''; });
+    const eyebrow = $('.checkout__eyebrow', modal);
+    if (eyebrow) eyebrow.textContent = activeLive ? 'Acquire' : 'Reserve';
+    f.submit.querySelector('span').textContent = activeLive ? 'Proceed to secure checkout' : 'Reserve this piece';
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     main?.setAttribute('inert', '');
-    setTimeout(() => $('#coName')?.focus(), 360);
+    setTimeout(() => (activeLive ? $('#coAccept') : $('#coName'))?.focus(), 360);
   }
   function closeModal(){
     modal.classList.remove('is-open');
@@ -114,8 +132,9 @@
         freight: +btn.dataset.freight || 0,
         label: btn.querySelector('span').textContent.trim(),
       };
-      if (shopifyReady(d.sku)) goToShopify(d.sku);
-      else openModal(d);
+      // Both modes open the modal: reserve mode shows the full form, live mode
+      // shows the consent step. Either way the buyer ticks the terms first.
+      openModal(d);
     });
   });
 
@@ -126,6 +145,17 @@
   /* ---------- Submit a reservation ---------- */
   f.form?.addEventListener('submit', async e => {
     e.preventDefault();
+    if (activeLive){
+      if (!$('#coAccept')?.checked){
+        f.status.style.color = '#8a6528';
+        f.status.textContent = 'Please confirm you accept the terms of sale.';
+        return;
+      }
+      f.status.style.color = '';
+      f.status.textContent = 'Opening secure checkout…';
+      goToShopify(active.sku);
+      return;
+    }
     const name = $('#coName').value.trim();
     const email = $('#coEmail').value.trim();
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
