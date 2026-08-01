@@ -184,7 +184,7 @@
       const res = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ _subject: `Earth Made — Private enquiry${piece ? ': ' + piece : ''}`,
+        body: JSON.stringify({ _subject: `Atelier Earthmade — Private enquiry${piece ? ': ' + piece : ''}`,
                                name, email, city, piece, message: msg }),
       });
       if (!res.ok) throw new Error('network');

@@ -171,7 +171,7 @@
     f.submit.disabled = true;
 
     const payload = {
-      _subject: `Earth Made — Reservation: ${active.piece} (${fmt(active.price)})`,
+      _subject: `Atelier Earthmade — Reservation: ${active.piece} (${fmt(active.price)})`,
       sku: active.sku,
       item: f.item.value,
       price_usd: active.price,
@@ -181,7 +181,7 @@
       delivery_city: $('#coCity').value.trim(),
       shipping_address: $('#coAddr').value.trim(),
       notes: $('#coNote').value.trim(),
-      shipping_terms: 'All-in: freight, crating, full transit insurance, and all import duty/customs carried by Earth Made as importer of record. State sales tax added at checkout where registered. Delivery to ground-floor threshold; rigging excluded.',
+      shipping_terms: 'All-in: freight, crating, full transit insurance, and all import duty/customs carried by Atelier Earthmade as importer of record. State sales tax added at checkout where registered. Delivery to ground-floor threshold; rigging excluded.',
       // Consent record — the evidence trail behind the final-sale position
       terms_accepted: 'YES — buyer ticked acceptance of the made-to-order final-sale terms',
       terms_accepted_at: new Date().toISOString(),

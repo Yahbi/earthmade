@@ -1,6 +1,6 @@
-# Earth Made — Stone Bathing Vessels
+# Earthmade — Stone Bathing Vessels
 
-A single-page showcase for **Earth Made**: monolithic bathing vessels, each cut
+A single-page showcase for **Earthmade**: monolithic bathing vessels, each cut
 from one block of natural stone by partner stone workshops.
 
 **Live site:** https://yahbi.github.io/earthmade/
@@ -13,12 +13,12 @@ so the two can never drift apart.
 
 ## Commerce
 
-The buyer purchases in full at checkout. Earth Made then commissions the piece,
+The buyer purchases in full at checkout. Earthmade then commissions the piece,
 imports it as **importer of record**, and delivers it.
 
 Every price includes freight, crating, export documentation, all-risk transit
 insurance to full replacement value, and all **import duty and customs charges**.
-US state sales tax is calculated at checkout where Earth Made is registered to
+US state sales tax is calculated at checkout where Earthmade is registered to
 collect it, and is the only amount ever added to the listed price.
 
 Delivery is to the ground-floor threshold within the **United States**. Rigging,
@@ -59,4 +59,4 @@ Pushing to `main` triggers `.github/workflows/pages.yml`, which publishes the
 
 ---
 
-© Earth Made
+© Earthmade
