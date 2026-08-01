@@ -1181,3 +1181,79 @@ body.ready .hero__trust{ opacity:1; transform:none; }
   .duties__row{ grid-template-columns:1.4fr .7fr 1fr; }
   .duties__row span:nth-child(3){ display:none; }
 }
+
+/* =====================================================================
+   ACCESSIBILITY & TARGET-SIZE CORRECTIONS  (audit 2026-08-01)
+   Appended last on purpose: the stylesheet applies a later restyle pass
+   over the original rules, so corrections must come after both to win.
+   ===================================================================== */
+
+/* A11Y-01 — the closed mobile menu was hidden only by clip-path, which does
+   not remove descendants from the tab order. Seven links sat in the tab
+   sequence of every page while invisible. visibility transitions cleanly
+   alongside clip-path and genuinely removes them. */
+.menu{ visibility:hidden; transition:clip-path .7s var(--ease), visibility 0s linear .7s; }
+.menu.is-open{ visibility:visible; transition:clip-path .7s var(--ease), visibility 0s; }
+
+/* A11Y-03 — "Acquire" is the only buy control for a $20k–$70k piece and was
+   a ~60x21px target. Grow the hit area upward; the underline stays put. */
+.btn--line{ min-height:44px; padding-top:.9em; align-items:flex-end; }
+
+/* A11Y-19 — nav and footer links were ~27px and ~34px tall. */
+.nav__links a{ min-height:44px; display:inline-flex; align-items:center; }
+.footer__col a{ padding:.62rem 0; }
+
+/* A11Y-10 — .field input/textarea set outline:none at (0,1,1), which beats the
+   bare :focus-visible at (0,1,0), so keyboard focus was invisible in forms. */
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible{ outline:2px solid var(--honey); outline-offset:2px; }
+
+/* A11Y-09 — focus ring inside the checkout panel was #a9803f on #e8e7e3 (2.90:1),
+   under the 3:1 minimum for non-text indicators. Espresso on bone is 12.6:1. */
+.checkout__panel :focus-visible{ outline-color:var(--espresso); }
+
+/* A11Y-02 / A11Y-08 — the status message used one inline colour (#8a6528) in two
+   places: 2.72:1 on the dark Commission panel and 4.27:1 on the bone checkout
+   panel. Both failed. Colour now comes from context, not from JS. */
+.form__status.is-error{ color:#f2b8a2; }                    /* on the dark panel */
+.checkout__panel .form__status.is-error{ color:#8f2c10; }   /* on the bone panel */
+.form__status.is-error{ font-weight:500; }
+
+/* A11Y-06 — the italic half of every interlude headline sat at .72 opacity over
+   bright photography (1.91:1). Full-strength sand plus the existing veil. */
+.interlude__line em{ color:var(--sand); opacity:1; text-shadow:0 2px 18px rgba(0,0,0,.55); }
+.interlude__veil{ background:linear-gradient(180deg, rgba(28,21,13,.48), rgba(28,21,13,.40) 55%, rgba(28,21,13,.54)); }
+
+/* A11Y-07 — Candela city captions were 9.6px at .55 alpha over photography. */
+.candela__city figcaption{ font-size:.74rem; color:var(--bone); text-shadow:0 1px 10px rgba(0,0,0,.85); }
+
+/* A11Y-18 / PERF-06 — stone-index labels rendered at ~8.8px on phones. */
+.stone{ font-size:.78rem; }
+.stone span{ font-size:.78rem; }
+
+/* A11Y-11 — no way past 14 header links for a keyboard user. */
+.skip-link{ position:absolute; left:-9999px; top:0; z-index:9999;
+  background:var(--espresso); color:var(--bone); padding:.9rem 1.4rem;
+  font-family:var(--sans); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; }
+.skip-link:focus{ left:.75rem; top:.75rem; outline:2px solid var(--honey); outline-offset:2px; }
+
+/* PERF-08 — the lightbox image had no intrinsic size, so opening it shifted layout. */
+.lightbox__stage img{ aspect-ratio:3/2; width:auto; height:auto; max-width:88vw; max-height:82vh; object-fit:contain; }
+
+/* A11Y-13 — with JS unavailable the reveal classes left almost all copy at
+   opacity:0. Without this the page is blank for anyone whose script fails. */
+.no-js .reveal-up, .no-js .reveal-img, .no-js .reveal-stagger,
+.no-js .reveal-up > *, .no-js .reveal-stagger > *{
+  opacity:1 !important; transform:none !important; clip-path:none !important; }
+
+/* IMG-06 — these galleries carry the studio render plus two further environments
+   for every piece: 42 images that were in the DOM but display:none with no toggle
+   anywhere in the site, so no visitor could reach them except by paging the
+   lightbox. Surfaced as a thumbnail row; each still opens the lightbox. */
+.look__more{ display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-top:1.1rem; }
+.look__more img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; cursor:pointer;
+  opacity:.82; transition:opacity .4s var(--ease), transform .6s var(--ease); }
+.look__more img:hover{ opacity:1; transform:scale(1.04); }
+.look__more img:focus-visible{ opacity:1; outline:2px solid var(--honey); outline-offset:2px; }
+@media (max-width:520px){ .look__more{ gap:.4rem; } }

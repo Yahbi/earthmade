@@ -5,6 +5,9 @@
   'use strict';
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+  // Scripts are running: release the copy that the reveal styles hold at opacity:0.
+  document.documentElement.classList.remove('no-js');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Reveal the hero at once (no artificial loader)
@@ -37,12 +40,19 @@
     menu.classList.toggle('is-open', willOpen);
     nav.classList.toggle('is-open', willOpen);
     burger.setAttribute('aria-expanded', String(willOpen));
+    burger.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
+    burger.setAttribute('aria-controls', 'menu');
     menu.setAttribute('aria-hidden', String(!willOpen));
+    // The closed menu is visibility:hidden in CSS; inert is the belt-and-braces
+    // guarantee that its seven links leave the tab order.
+    menu.toggleAttribute('inert', !willOpen);
     document.body.style.overflow = willOpen ? 'hidden' : '';
     if (main) main.toggleAttribute('inert', willOpen);
     if (willOpen) setTimeout(() => menuLinks[0]?.focus(), 60);
     else burger.focus();
   }
+  // The menu starts closed, so start it inert — toggleMenu only runs on interaction.
+  menu?.toggleAttribute('inert', true);
   burger?.addEventListener('click', () => toggleMenu());
   menuLinks.forEach(a => a.addEventListener('click', () => toggleMenu(false)));
   addEventListener('keydown', e => {
@@ -57,7 +67,7 @@
 
   /* ---------- Cinematic settle: play once when a full-bleed layer reveals ---------- */
   if (!reduced){
-    const settlers = $$('.piece__stage, .interlude, .lumen, .inquire');
+    const settlers = $$('.interlude, .candela, .inquire');
     if (settlers.length){
       const kb = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -101,13 +111,21 @@
     idx = (i + items.length) % items.length;
     lbImg.src = items[idx].full; lbImg.alt = items[idx].cap;
     lbCap.textContent = items[idx].cap;
-    lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false');
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    lb.setAttribute('aria-modal', 'true');
     document.body.style.overflow = 'hidden';
-    $('#lbClose')?.focus();
+    main?.toggleAttribute('inert', true);
+    // Focus only once the dialog is actually visible — focusing a
+    // visibility:hidden element is a no-op and strands the keyboard user.
+    requestAnimationFrame(() => $('#lbClose')?.focus());
   }
   function closeLb(){
-    lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true');
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    lb.removeAttribute('aria-modal');
     document.body.style.overflow = '';
+    main?.removeAttribute('inert');
     lastFocus?.focus?.();
   }
   // Each tile is a real control: focusable, announced, and operable by keyboard
@@ -121,6 +139,16 @@
     t.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(i); }
     });
+  });
+  // Keep Tab inside the dialog while it is open
+  lb?.addEventListener('keydown', e => {
+    if (e.key !== 'Tab' || !lb.classList.contains('is-open')) return;
+    const f = [...lb.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')]
+      .filter(el => el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
   });
   $('#lbClose')?.addEventListener('click', closeLb);
   $('#lbPrev')?.addEventListener('click', () => openLb(idx - 1));
@@ -142,7 +170,7 @@
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!name || !emailOk){
       status.textContent = !name ? 'Please share your name.' : 'Please enter a valid email.';
-      status.style.color = '#e0a85a';
+      status.classList.add('is-error');
       return;
     }
     // Deliver the enquiry via the form endpoint. No address appears in this file.
@@ -161,11 +189,11 @@
       });
       if (!res.ok) throw new Error('network');
     } catch (err) {
-      status.style.color = '#8a6528';
+      status.classList.add('is-error');
       status.textContent = 'We could not send that just now — please try again in a moment.';
       return;
     }
-    status.style.color = '';
+    status.classList.remove('is-error');
     status.textContent = 'Thank you — your enquiry has reached the atelier. We reply within two working days.';
     form.reset();
   });

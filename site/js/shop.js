@@ -146,11 +146,11 @@
     e.preventDefault();
     if (activeLive){
       if (!$('#coAccept')?.checked){
-        f.status.style.color = '#8a6528';
+        f.status.classList.add('is-error');
         f.status.textContent = 'Please confirm you accept the terms of sale.';
         return;
       }
-      f.status.style.color = '';
+      f.status.classList.remove('is-error');
       f.status.textContent = 'Opening secure checkout…';
       goToShopify(active.sku);
       return;
@@ -160,13 +160,13 @@
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const accepted = $('#coAccept')?.checked;
     if (!name || !emailOk || !accepted){
-      f.status.style.color = '#8a6528';
+      f.status.classList.add('is-error');
       f.status.textContent = !name ? 'Please share your name.'
         : !emailOk ? 'Please enter a valid email.'
         : 'Please confirm you accept the terms of sale.';
       return;
     }
-    f.status.style.color = '';
+    f.status.classList.remove('is-error');
     f.status.textContent = 'Sending…';
     f.submit.disabled = true;
 
@@ -199,10 +199,10 @@
         throw new Error('No endpoint configured');
       }
       f.form.reset();
-      f.status.style.color = '';
+      f.status.classList.remove('is-error');
       f.status.textContent = 'Reserved. The atelier will confirm your piece and send a secure payment link within 24 hours.';
     } catch (err){
-      f.status.style.color = '#8a6528';
+      f.status.classList.add('is-error');
       f.status.textContent = 'We could not send that just now. Please try again in a moment, or use the enquiry form below.';
     } finally {
       f.submit.disabled = false;
