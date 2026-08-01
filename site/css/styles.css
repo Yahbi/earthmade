@@ -1114,7 +1114,8 @@ body.ready .hero__trust{ opacity:1; transform:none; }
 
 /* ---------- 17 · FOOTER: wordmark at architectural scale ---------- */
 .footer__top{ padding-bottom:clamp(2.2rem,6vh,3.5rem); border-bottom:1px solid rgba(236,234,229,.16); }
-.footer__brand{ display:block; font-size:clamp(2.6rem,13.5vw,11rem); line-height:.8; letter-spacing:-.045em; }
+.footer__brand{ display:block; font-size:clamp(2rem,9vw,8rem); line-height:.86; letter-spacing:-.035em;
+  white-space:normal; overflow-wrap:anywhere; max-width:100%; }
 .footer__tag{ color:rgba(236,234,229,.6); max-width:36ch; font-size:.85rem; }
 .footer__cols{ grid-template-columns:1.1fr 1.7fr 1.2fr; }
 .footer__label{ color:rgba(236,234,229,.56); font-size:.6rem; font-weight:500; letter-spacing:.08em; }
