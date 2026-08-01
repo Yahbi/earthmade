@@ -16,8 +16,10 @@
 
   const SHOP_CONFIG = {
     // --- Real Shopify checkout ----------------------------------------
-    // Live store. Variant ids below are the real ones created in Shopify.
-    shopifyDomain: 'earthmade-stone.myshopify.com',
+    // Live store on the branded domain (bought 2026-08-01). Variant ids are real.
+    // Using the branded host avoids a 301 hop and keeps atelierearthmade.com in the
+    // address bar through checkout, which matters at these prices.
+    shopifyDomain: 'atelierearthmade.com',
 
     // MASTER SWITCH — LIVE since 2026-07-31 on the owner's instruction.
     // Payments active, storefront password removed, cart permalinks verified
