@@ -1257,3 +1257,8 @@ body.ready .hero__trust{ opacity:1; transform:none; }
 .look__more img:hover{ opacity:1; transform:scale(1.04); }
 .look__more img:focus-visible{ opacity:1; outline:2px solid var(--honey); outline-offset:2px; }
 @media (max-width:520px){ .look__more{ gap:.4rem; } }
+
+/* PERF-02 — images are now wrapped in <picture> so the browser negotiates FORMAT
+   as well as width. display:contents keeps the <img> as the direct grid/flex item
+   so every existing layout rule (.look__more, .stone, .prov) still applies. */
+picture{ display:contents; }
