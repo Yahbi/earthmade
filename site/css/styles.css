@@ -1272,3 +1272,8 @@ picture{ display:contents; }
 .hero__video.is-playing{ opacity:1; }
 .hero__media .hero__veil{ z-index:1; }
 @media (prefers-reduced-motion: reduce){ .hero__video{ display:none !important; } }
+
+/* A quiet caveat under a piece's spec line — used where a vessel carries a
+   condition the buyer must know before they commit (Erebus needs rigging). */
+.look__note{ margin-top:.5rem; font-size:.82rem; line-height:1.5; color:var(--umber);
+  opacity:.72; max-width:44ch; }
