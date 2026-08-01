@@ -1233,10 +1233,15 @@ body.ready .hero__trust{ opacity:1; transform:none; }
 .stone span{ font-size:.78rem; }
 
 /* A11Y-11 — no way past 14 header links for a keyboard user. */
-.skip-link{ position:absolute; left:-9999px; top:0; z-index:9999;
-  background:var(--espresso); color:var(--bone); padding:.9rem 1.4rem;
+/* Hidden by clipping, not by pushing off-canvas: left:-9999px widens the
+   scroll box and gives the whole page a horizontal scrollbar. */
+.skip-link{ position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; z-index:9999;
+  background:var(--espresso); color:var(--bone);
   font-family:var(--sans); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; }
-.skip-link:focus{ left:.75rem; top:.75rem; outline:2px solid var(--honey); outline-offset:2px; }
+.skip-link:focus{ width:auto; height:auto; overflow:visible; clip:auto; clip-path:none;
+  left:.75rem; top:.75rem; padding:.9rem 1.4rem;
+  outline:2px solid var(--honey); outline-offset:2px; }
 
 /* PERF-08 — the lightbox image had no intrinsic size, so opening it shifted layout. */
 .lightbox__stage img{ aspect-ratio:3/2; width:auto; height:auto; max-width:88vw; max-height:82vh; object-fit:contain; }
@@ -1277,3 +1282,10 @@ picture{ display:contents; }
    condition the buyer must know before they commit (Erebus needs rigging). */
 .look__note{ margin-top:.5rem; font-size:.82rem; line-height:1.5; color:var(--umber);
   opacity:.72; max-width:44ch; }
+
+
+/* Full-bleed background images must never exceed the viewport. On very narrow
+   screens object-fit alone let them run a few px wide and scroll the page. */
+.candela__bg, .inquire__bg, .interlude img, .hero__img, .hero__video{
+  max-width:100%; left:0; right:0; }
+html, body{ overflow-x:hidden; }
