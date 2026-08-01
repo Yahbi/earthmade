@@ -19,14 +19,12 @@
     // Live store. Variant ids below are the real ones created in Shopify.
     shopifyDomain: 'earthmade-stone.myshopify.com',
 
-    // MASTER SWITCH. Shopify Payments is ACTIVE (verified 2026-07-31), but two
-    // gates remain before flipping this to true:
-    //   1. The storefront password must be removed (Online Store → Preferences)
-    //      — cart permalinks bounce off a password-locked store.
-    //   2. The compliance gate: customs broker + continuous bond, marine cargo
-    //      insurance, and lawyer-read policies. No money before those.
-    // While false, Acquire opens the reservation form (which works today).
-    liveCheckout: false,
+    // MASTER SWITCH — LIVE since 2026-07-31 on the owner's instruction.
+    // Payments active, storefront password removed, cart permalinks verified
+    // reaching hosted checkout. Operational rule unchanged: no block is
+    // committed until funds have SETTLED, and broker/bond + marine insurance
+    // must be in place before any piece ships (enquiries sent, not yet bound).
+    liveCheckout: true,
 
     // Map each SKU to its Shopify variant id.
     variants: {
