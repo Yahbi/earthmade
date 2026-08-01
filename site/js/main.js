@@ -98,6 +98,25 @@
     stats.forEach(s => sio.observe(s));
   }
 
+  /* ---------- Hero film ----------
+     Deferred on purpose: the poster image is the LCP element, so the film is
+     only fetched after load, only on a connection that can carry it, and only
+     if the visitor has not asked for reduced motion. */
+  (() => {
+    const v = $('#heroVideo');
+    if (!v) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+    const start = () => {
+      const src = innerWidth < 700 ? 'assets/video/hero-candela-720.mp4' : 'assets/video/hero-candela.mp4';
+      v.src = src;
+      v.play().then(() => v.classList.add('is-playing')).catch(() => {});
+    };
+    if (document.readyState === 'complete') setTimeout(start, 600);
+    else addEventListener('load', () => setTimeout(start, 600));
+  })();
+
   /* ---------- Lightbox (unified .js-lb) ---------- */
   const tiles = $$('.js-lb');
   const lb = $('#lightbox'), lbImg = $('#lbImg'), lbCap = $('#lbCap');

@@ -1262,3 +1262,13 @@ body.ready .hero__trust{ opacity:1; transform:none; }
    as well as width. display:contents keeps the <img> as the direct grid/flex item
    so every existing layout rule (.look__more, .stone, .prov) still applies. */
 picture{ display:contents; }
+
+/* ---------- Hero film -------------------------------------------------
+   The still image stays the LCP element and is never displaced: the video
+   sits above it at opacity 0 and only fades in once it can actually play.
+   A hero video that blocks first paint is worse than no hero video. */
+.hero__video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity 1.6s var(--ease); pointer-events:none; z-index:0; }
+.hero__video.is-playing{ opacity:1; }
+.hero__media .hero__veil{ z-index:1; }
+@media (prefers-reduced-motion: reduce){ .hero__video{ display:none !important; } }
