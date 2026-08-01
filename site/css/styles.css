@@ -1,5 +1,5 @@
 /* =====================================================================
-   EARTH MADE — Stone Atelier
+   ATELIER EARTHMADE — Stone Atelier
    Design tokens + global system
    ===================================================================== */
 
@@ -601,7 +601,7 @@ body{ background:var(--canvas); }
   .look--feature{ grid-template-columns:1fr; }
 }
 /* =====================================================================
-   EARTH MADE — EDITION 02 · CONSOLIDATED OVERRIDE
+   ATELIER EARTHMADE — EDITION 02 · CONSOLIDATED OVERRIDE
    Append this ENTIRE block verbatim to the END of
    /Users/yohan/Desktop/Earthmade/Website pic/site/css/styles.css
    Nothing above it is deleted. Do not reorder the numbered parts.

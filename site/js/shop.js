@@ -1,5 +1,5 @@
 /* =====================================================================
-   EARTH MADE — Acquire / checkout layer
+   ATELIER EARTHMADE — Acquire / checkout layer
    ---------------------------------------------------------------------
    Two modes, auto-selected:
    1) SHOPIFY  — if a Shopify domain + Storefront token + product ids are

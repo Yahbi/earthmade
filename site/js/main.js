@@ -1,5 +1,5 @@
 /* =====================================================================
-   EARTH MADE — interaction layer (minimalist)
+   ATELIER EARTHMADE — interaction layer (minimalist)
    ===================================================================== */
 (() => {
   'use strict';
