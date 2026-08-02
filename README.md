@@ -7,7 +7,7 @@ from one block of natural stone by partner stone workshops.
 
 ## Collection
 
-Eleven pieces, made to order. The live site is the only source of truth for the
+Fourteen pieces, made to order. The live site is the only source of truth for the
 collection, materials, dimensions and prices — deliberately not mirrored here,
 so the two can never drift apart.
 
@@ -16,14 +16,14 @@ so the two can never drift apart.
 The buyer purchases in full at checkout. Earthmade then commissions the piece,
 imports it as **importer of record**, and delivers it.
 
-Every price includes freight, crating, export documentation, all-risk transit
-insurance to full replacement value, and all **import duty and customs charges**.
+Every price includes freight, crating, export documentation, transit
+insurance with the sum insured stated in writing on your order, and all **import duty and customs charges**.
 US state sales tax is calculated at checkout where Earthmade is registered to
 collect it, and is the only amount ever added to the listed price.
 
 Delivery is to the ground-floor threshold within the **United States**. Rigging,
 craning and stair carries are quoted separately. International commissions are
-not offered at present.
+accepted by enquiry rather than through checkout.
 
 Sourcing, supplier identities, wholesale costs and margin analysis are kept
 **off this repository**, in operator files on the owner's machine.
