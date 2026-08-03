@@ -109,7 +109,15 @@
     const conn = navigator.connection;
     if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
     const start = () => {
-      const src = innerWidth < 700 ? 'assets/video/hero-candela-720.mp4' : 'assets/video/hero-candela.mp4';
+      // Pick by the pixel width actually being painted, not by CSS width alone —
+      // a 1440-wide retina laptop paints 2880 and deserves the 4K file, while a
+      // 1280 phone at dpr 3 does not (it would burn 5 MB to fill 720 CSS px).
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const painted = innerWidth * dpr;
+      const slow = conn && /3g/.test(conn.effectiveType || '');
+      const src = (innerWidth < 700 || slow) ? 'assets/video/hero-canyon-720.mp4'
+                : painted >= 2560         ? 'assets/video/hero-canyon-2160.mp4'
+                                          : 'assets/video/hero-canyon-1440.mp4';
       v.src = src;
       v.play().then(() => v.classList.add('is-playing')).catch(() => {});
     };
