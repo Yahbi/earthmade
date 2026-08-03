@@ -115,8 +115,11 @@
       const dpr = Math.min(devicePixelRatio || 1, 2);
       const painted = innerWidth * dpr;
       const slow = conn && /3g/.test(conn.effectiveType || '');
+      // The 1440 file is 2560 px wide, so painted === 2560 is an exact match and
+      // must NOT reach for the 3840 file — that is the common 1280@2x / 2560@1x
+      // laptop, and it would spend 4.3 MB where 2.3 MB is already pixel-perfect.
       const src = (innerWidth < 700 || slow) ? 'assets/video/hero-canyon-720.mp4'
-                : painted >= 2560         ? 'assets/video/hero-canyon-2160.mp4'
+                : painted > 2560          ? 'assets/video/hero-canyon-2160.mp4'
                                           : 'assets/video/hero-canyon-1440.mp4';
       v.src = src;
       v.play().then(() => v.classList.add('is-playing')).catch(() => {});

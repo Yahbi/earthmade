@@ -780,7 +780,10 @@
     <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">›</button>
   </div>
 
-  <script src="js/main.js?v=45d84951" defer></script>
-  <script src="js/shop.js?v=45d84951" defer></script>
+  <!-- Cache-bust tokens are the first 8 hex of each file's own sha256, the same
+       convention styles.css uses. Per-file (not one shared token) so a change to
+       one script can never silently ride on the other's unchanged token. -->
+  <script src="js/main.js?v=5b062d36" defer></script>
+  <script src="js/shop.js?v=236f494a" defer></script>
 </body>
 </html>
