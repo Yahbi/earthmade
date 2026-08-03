@@ -32,8 +32,22 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Background inert ----------
+     The header and the footer live OUTSIDE <main id="top">, so inerting #top
+     alone left the six nav links, the burger and the twenty-three footer links
+     exposed behind every overlay: reachable by a screen reader's virtual cursor
+     and, for the mobile menu (which has no Tab trap), reachable by Tab as well.
+     `keepNav` is true for the mobile menu only — its close control IS the burger,
+     which is painted above the overlay on purpose. */
+  const footer = $('footer');
+  function setBackgroundInert(on, keepNav = false){
+    $('#top')?.toggleAttribute('inert', on);
+    footer?.toggleAttribute('inert', on);
+    nav?.toggleAttribute('inert', on && !keepNav);
+  }
+
   /* ---------- Mobile menu (with focus management) ---------- */
-  const burger = $('#burger'), menu = $('#menu'), main = $('#top');
+  const burger = $('#burger'), menu = $('#menu');
   const menuLinks = $$('.menu__links a');
   function toggleMenu(open){
     const willOpen = open ?? !menu.classList.contains('is-open');
@@ -47,7 +61,8 @@
     // guarantee that its seven links leave the tab order.
     menu.toggleAttribute('inert', !willOpen);
     document.body.style.overflow = willOpen ? 'hidden' : '';
-    if (main) main.toggleAttribute('inert', willOpen);
+    // Nav stays live: the burger doubles as the menu's close control.
+    setBackgroundInert(willOpen, true);
     if (willOpen) setTimeout(() => menuLinks[0]?.focus(), 60);
     else burger.focus();
   }
@@ -137,7 +152,11 @@
   }));
   let idx = 0, lastFocus = null;
   function openLb(i){
-    lastFocus = document.activeElement;
+    // Only capture the trigger on the FIRST open. Arrow keys and the prev/next
+    // buttons re-enter openLb while the dialog is up, and were overwriting
+    // lastFocus with #lbClose — so closing returned focus to a hidden button
+    // instead of the thumbnail the visitor came from.
+    if (!lb.classList.contains('is-open')) lastFocus = document.activeElement;
     idx = (i + items.length) % items.length;
     lbImg.src = items[idx].full; lbImg.alt = items[idx].cap;
     lbCap.textContent = items[idx].cap;
@@ -145,7 +164,7 @@
     lb.setAttribute('aria-hidden', 'false');
     lb.setAttribute('aria-modal', 'true');
     document.body.style.overflow = 'hidden';
-    main?.toggleAttribute('inert', true);
+    setBackgroundInert(true);
     // Focus only once the dialog is actually visible — focusing a
     // visibility:hidden element is a no-op and strands the keyboard user.
     requestAnimationFrame(() => $('#lbClose')?.focus());
@@ -155,7 +174,7 @@
     lb.setAttribute('aria-hidden', 'true');
     lb.removeAttribute('aria-modal');
     document.body.style.overflow = '';
-    main?.removeAttribute('inert');
+    setBackgroundInert(false);
     lastFocus?.focus?.();
   }
   // Each tile is a real control: focusable, announced, and operable by keyboard

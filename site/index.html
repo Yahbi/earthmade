@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css?v=40740669" />
+  <link rel="stylesheet" href="css/styles.css?v=c5d56349" />
 
   <!-- Structured data: brand + product catalogue -->
   <script type="application/ld+json">
@@ -77,7 +77,7 @@
     <a href="#inquire" class="nav__cta">
       <span>Commission</span>
     </a>
-    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
   </header>
@@ -99,13 +99,17 @@
     </div>
   </div>
 
-  <main id="top">
+  <!-- tabindex="-1" so the skip link actually moves focus here, not just the scroll position -->
+  <main id="top" tabindex="-1">
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
       <div class="hero__media">
-        <img width="1448" height="1086" src="assets/img/canyon-01.webp" srcset="assets/img/canyon-01.webp 1448w, assets/img/canyon-01-1800.webp 1800w, assets/img/canyon-01-2800.webp 2800w" sizes="100vw" fetchpriority="high" alt="A hand-carved honey-stone bathing vessel set before a wall of glass overlooking the canyon" class="hero__img" id="heroImg" />
-        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" poster="assets/img/hero-canyon-poster.jpg"></video>
+        <img width="1448" height="1086" src="assets/img/canyon-01.webp" srcset="assets/img/canyon-01.webp 1448w, assets/img/canyon-01-1800.webp 1800w, assets/img/canyon-01-2800.webp 2800w" sizes="100vw" fetchpriority="high" alt="A hand-carved honey-stone bathing vessel set before a wall of glass overlooking the canyon, visualisation" class="hero__img" id="heroImg" />
+        <!-- No poster: the film sits at opacity:0 until it can play, so a poster is
+             never seen — but the browser fetches it eagerly regardless of preload="none",
+             which put a second full-viewport image in front of the LCP paint. -->
+        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true"></video>
         <div class="hero__veil"></div>
       </div>
 
@@ -419,32 +423,32 @@
       <div class="craft__grid">
         <div class="craft__step reveal-up">
           <span class="craft__step-no">01</span>
-          <h4>One block, not several</h4>
+          <h3>One block, not several</h3>
           <p>Every vessel is cut from a single block of natural stone — never assembled, bonded or laminated from pieces, and never stone-effect resin. Our workshops state it plainly: one monolithic boulder, no glue, no reconstruction. It is the first thing we verify before a piece enters the collection.</p>
         </div>
         <div class="craft__step reveal-up">
           <span class="craft__step-no">02</span>
-          <h4>No two blocks alike</h4>
+          <h3>No two blocks alike</h3>
           <p>Colour, veining and translucency differ from block to block, so no two vessels match. The piece that reaches you will differ from every image on this page. That is the material, not a fault.</p>
         </div>
         <div class="craft__step reveal-up">
           <span class="craft__step-no">03</span>
-          <h4>Hollowed by machine and hand</h4>
+          <h3>Hollowed by machine and hand</h3>
           <p>The bulk is taken out by machine; the interior is finished by hand. Every piece in the collection is hand-carved — that is what the workshops build, and it is why a vessel takes weeks rather than days.</p>
         </div>
         <div class="craft__step reveal-up">
           <span class="craft__step-no">04</span>
-          <h4>Honed or polished</h4>
+          <h3>Honed or polished</h3>
           <p>Finished to the specification for the piece. A honed surface reads matte and soft underfoot; a polished one reads reflective and cooler. Both are cut into the same solid stone.</p>
         </div>
         <div class="craft__step reveal-up">
           <span class="craft__step-no">05</span>
-          <h4>Sealed before dispatch</h4>
+          <h3>Sealed before dispatch</h3>
           <p>An impregnating sealer is applied before the piece leaves the workshop. Porous stones — travertine, sandstone, limestone, onyx — want re-sealing every 12 to 18 months once they are in use.</p>
         </div>
         <div class="craft__step reveal-up">
           <span class="craft__step-no">06</span>
-          <h4>Crated and shipped</h4>
+          <h3>Crated and shipped</h3>
           <p>Crated for export and shipped by sea, insured in transit for the whole journey, with the sum insured stated in writing on your order. We clear it as importer of record and deliver it to your threshold.</p>
         </div>
       </div>
@@ -481,27 +485,27 @@
 
       <div class="details__grid reveal-stagger">
         <div class="detail">
-          <h4>Made to order</h4>
+          <h3>Made to order</h3>
           <p>Nothing waits in a warehouse. When you reserve, a block is selected for you and cut — <strong>4 to 20 weeks at the bench</strong> depending on the stone and the form. Your dates are confirmed in writing once your block is chosen, not before.</p>
         </div>
         <div class="detail">
-          <h4>Payment</h4>
+          <h3>Payment</h3>
           <p>Checkout is secure and handled by Shopify: <strong>payment in full</strong>. Your order is then <strong>held for three days</strong> while we assess the logistics for your address &mdash; access, floor level, whether rigging is needed, and the delivery route &mdash; and confirm that plan to you in writing. Nothing is ordered and no block is committed during that hold. <strong>Within 72 hours of payment clearing, either of us may cancel</strong>: you for any reason at all, and us if the workshop or the logistics cannot be confirmed. Either way you are refunded in full. It is one window, not two. After it closes your block is bought and cutting begins, and the commission cannot be cancelled or returned unless we agree otherwise with you in writing by email. None of this affects your rights if a piece arrives late, damaged, faulty or not as described.</p>
         </div>
         <div class="detail">
-          <h4>Freight &amp; insurance</h4>
+          <h3>Freight &amp; insurance</h3>
           <p>We crate, book and manage the shipment door to door, and <strong>insure it in transit</strong>. <strong>Freight and transit insurance are already inside the price.</strong> There is no separate shipping charge to any address in the United States.</p>
         </div>
         <div class="detail">
-          <h4>Duties &amp; import taxes</h4>
+          <h3>Duties &amp; import taxes</h3>
           <p><strong>One price, delivered.</strong> It includes freight, crating, export documentation, transit insurance with the sum insured stated in writing on your order, <strong>and all import duty and customs clearance</strong>. We are the importer of record: we clear the piece and the duty is ours. <strong>Nothing further is ever payable on delivery.</strong> Where we are registered to collect it, state sales tax is shown at checkout before you pay. Checkout delivers to addresses in the <strong>United States</strong>, where this all-in price applies. <strong>We do ship internationally</strong> — but freight, duty and local tax differ by country, so an international commission begins with a conversation rather than a checkout. <a href="#inquire">Send us an enquiry</a> and we will price it properly for your address.</p>
         </div>
         <div class="detail">
-          <h4>Delivery</h4>
+          <h3>Delivery</h3>
           <p>Delivered crated to your ground-floor threshold. Inspect it before you sign. <strong>If the piece has been damaged, you must refuse the delivery</strong> — do not accept it and do not sign for it. Refusal is what permits the transit insurance claim and the case against the carrier; once a damaged piece is accepted and signed for, that route closes. Note the damage on the carrier's paperwork, photograph what you can, and tell us the same day. If the piece is sound, <strong>keep the crate and all packaging</strong> until it is confirmed so. Plumbing is connected by your own licensed installer. Setting a piece above the ground floor is rigging work, not delivery — tell us where it must stand and we will quote it with a specialist in your city, or coordinate with your builder.</p>
         </div>
         <div class="detail">
-          <h4>Care &amp; cover</h4>
+          <h3>Care &amp; cover</h3>
           <p>Sealed before dispatch. Clean with pH-neutral soap and warm water; re-seal every 12 to 18 months. Each vessel is crated to order and <strong>insured in transit</strong>. That cover runs to the moment of delivery. Atelier Earthmade adds no structural guarantee of its own beyond it; where the workshop that made your piece offers a manufacturer's warranty, we pass it through on their terms and tell you what applies before you buy.</p>
         </div>
       </div>
@@ -511,7 +515,7 @@
         <div class="stage">
           <span class="stage__no">01</span>
           <div class="stage__body">
-            <h4 class="stage__name">Reservation</h4>
+            <h3 class="stage__name">Reservation</h3>
             <p class="stage__note">Payment cleared. We place the order with the workshop and confirm your piece, its dimensions and your dates to you in writing.</p>
             <p class="stage__note">Before it is crated you are sent photographs of the finished vessel — the workshops document each piece for approval ahead of packing, and we pass that to you.</p>
           </div>
@@ -520,7 +524,7 @@
         <div class="stage">
           <span class="stage__no">02</span>
           <div class="stage__body">
-            <h4 class="stage__name">Carving</h4>
+            <h3 class="stage__name">Carving</h3>
             <p class="stage__note">Bored, hollowed and shaped from the single block at the workshop. The stone sets this pace, not us — softer travertine moves quickly, onyx and petrified wood cannot be hurried.</p>
           </div>
           <span class="stage__time">4–20 weeks</span>
@@ -528,7 +532,7 @@
         <div class="stage">
           <span class="stage__no">03</span>
           <div class="stage__body">
-            <h4 class="stage__name">Finishing and sealing</h4>
+            <h3 class="stage__name">Finishing and sealing</h3>
             <p class="stage__note">Honed or polished to the specified finish, the waste outlet cored, and an impregnating sealer applied before the piece is crated for its journey.</p>
           </div>
           <span class="stage__time">2–3 weeks</span>
@@ -536,7 +540,7 @@
         <div class="stage">
           <span class="stage__no">04</span>
           <div class="stage__body">
-            <h4 class="stage__name">Crating</h4>
+            <h3 class="stage__name">Crating</h3>
             <p class="stage__note">Crated for export by the workshop and shipped by sea. Insurance is bound before the piece moves, and the sum insured is confirmed to you in writing.</p>
           </div>
           <span class="stage__time">5 days</span>
@@ -544,7 +548,7 @@
         <div class="stage">
           <span class="stage__no">05</span>
           <div class="stage__body">
-            <h4 class="stage__name">Ocean freight</h4>
+            <h3 class="stage__name">Ocean freight</h3>
             <p class="stage__note">Booked and tracked by us, port to port with inland haulage either side. Air freight compresses this leg to roughly a fortnight and is quoted on request.</p>
           </div>
           <span class="stage__time">4–7 weeks</span>
@@ -552,7 +556,7 @@
         <div class="stage">
           <span class="stage__no">06</span>
           <div class="stage__body">
-            <h4 class="stage__name">Customs clearance</h4>
+            <h3 class="stage__name">Customs clearance</h3>
             <p class="stage__note">Our customs broker files the entry in our name with the commercial invoice and packing list. We are the importer of record. Our broker files the entry and we settle the duty and import charges. Nothing is asked of you at this stage.</p>
           </div>
           <span class="stage__time">3–10 days</span>
@@ -560,7 +564,7 @@
         <div class="stage">
           <span class="stage__no">07</span>
           <div class="stage__body">
-            <h4 class="stage__name">Delivery</h4>
+            <h3 class="stage__name">Delivery</h3>
             <p class="stage__note">Booked with you by appointment and delivered to your ground-floor threshold, still crated. Inspect it before you sign. <strong>If the piece has been damaged, refuse the delivery</strong> — do not accept it and do not sign for it. Refusal is the event that lets us claim against the carrier and the insurer; a damaged piece that is signed for closes that route. Note the damage on the carrier's paperwork, photograph what you can, and tell us the same day. Rigging, craning and stair carries are not included.</p>
           </div>
           <span class="stage__time">By appointment</span>

@@ -178,7 +178,7 @@ em{ font-style:italic; }
 .craft__head{ margin-bottom:3.5rem; }
 .craft__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.5rem,3vw,3rem); border-top:1px solid var(--line); padding-top:3rem; }
 .craft__step-no{ font-family:var(--serif); font-style:italic; font-size:1.2rem; color:var(--honey-deep); }
-.craft__step h4{ font-family:var(--serif); font-weight:400; font-size:1.5rem; margin:1rem 0 .8rem; }
+.craft__step h3, .craft__step h4{ font-family:var(--serif); font-weight:400; font-size:1.5rem; margin:1rem 0 .8rem; }
 .craft__step p{ color:var(--umber); opacity:.78; max-width:32ch; }
 .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:5rem; border-top:1px solid var(--line); padding-top:3rem; }
 .stat{ display:flex; flex-direction:column; gap:.6rem; }
@@ -298,7 +298,7 @@ body.ready .hero__eyebrow, body.ready .hero__lede, body.ready .hero__actions{ op
 /* Details — shipping & care */
 .details__head{ margin-bottom:3rem; }
 .details__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.6rem,3vw,3rem) clamp(2rem,4vw,4rem); border-top:1px solid var(--line); padding-top:3rem; }
-.detail h4{ font-family:var(--serif); font-weight:400; font-size:1.3rem; margin-bottom:.7rem; }
+.detail h3, .detail h4{ font-family:var(--serif); font-weight:400; font-size:1.3rem; margin-bottom:.7rem; }
 .detail p{ color:var(--umber); opacity:.8; max-width:38ch; font-size:.95rem; line-height:1.6; }
 .detail strong{ color:var(--espresso); opacity:1; }
 .freight{ max-width:var(--maxw); margin:clamp(2.5rem,5vw,4rem) auto 0; border-top:1px solid var(--line); padding-top:2.4rem; }
@@ -965,7 +965,7 @@ body.ready .hero__trust{ opacity:1; transform:none; }
 }
 .craft__step-no{ font-family:var(--grotesk); font-style:normal; font-weight:600;
   font-size:.66rem; letter-spacing:.06em; color:var(--ink-45); opacity:1; padding-top:.4rem; }
-.craft__step h4{ font-family:var(--grotesk); font-weight:500; text-transform:uppercase;
+.craft__step h3, .craft__step h4{ font-family:var(--grotesk); font-weight:500; text-transform:uppercase;
   font-size:clamp(1rem,1.5vw,1.28rem); letter-spacing:-.012em; margin:0; }
 .craft__step p{ max-width:52ch; font-size:.93rem; line-height:1.55; color:var(--ink-70); opacity:1; }
 @media (max-width:820px){
@@ -1001,7 +1001,7 @@ body.ready .hero__trust{ opacity:1; transform:none; }
 .details__grid{ grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(2rem,4vw,3.2rem) clamp(2.5rem,6vw,6rem);
   border-top:1px solid var(--ink); padding-top:2.4rem; }
-.detail h4{ font-family:var(--grotesk); font-weight:600; text-transform:uppercase;
+.detail h3, .detail h4{ font-family:var(--grotesk); font-weight:600; text-transform:uppercase;
   font-size:.68rem; letter-spacing:.08em; margin-bottom:.85rem; color:var(--ink); }
 .detail p{ font-size:.95rem; line-height:1.58; color:var(--ink-70); opacity:1; max-width:46ch; }
 .detail strong{ color:var(--ink); font-weight:500; }
@@ -1290,3 +1290,67 @@ picture{ display:contents; }
 .candela__bg, .inquire__bg, .interlude img, .hero__img, .hero__video{
   max-width:100%; left:0; right:0; }
 html, body{ overflow-x:hidden; }
+
+/* =====================================================================
+   ACCESSIBILITY & PERFORMANCE CORRECTIONS — audit 2026-08-02
+   Appended last so these win over both the original rules and the
+   Edition-02 override above.
+   ===================================================================== */
+
+/* A11Y-20 — hero copy over the veil.
+   The copy block measures from 38% to 92% of the viewport height, but the veil
+   held only .05 alpha at 36% and did not reach .74 until the very bottom edge.
+   Composited against the real hero frame (assets/img/canyon-01.webp, cover-cropped
+   to 1440x900 and 369x800), 18.0% of the desktop text band and 8.6% of the mobile
+   band fell under 4.5:1, worst case 1.33:1.
+   Two corrections, neither of them layout: the veil ramps up across the band the
+   type actually occupies, and the eyebrow and lede stop being translucent white
+   (they were .86 and .88 alpha over a photograph).
+   After: 3.7% desktop / 1.8% mobile under 4.5:1. The residual is the bright sky
+   through the window directly behind the eyebrow line — closing it completely
+   needs either a much heavier veil or moving the eyebrow, both design calls. */
+.hero__veil{
+  background:linear-gradient(180deg,
+    rgba(10,10,9,.38),
+    rgba(10,10,9,.08) 29%,
+    rgba(10,10,9,.48) 56%,
+    rgba(10,10,9,.84));
+}
+.hero__eyebrow{ color:#eceae5; }
+.hero__lede{ color:#eceae5; }
+
+/* A11Y-06b — the earlier fix set .interlude__line em to opacity:1, but the
+   colour it uses (--sand) is itself rgba(236,234,229,.62), so the italic half
+   of every interlude headline was still 38% transparent over bright rock and
+   surf: worst 2.20:1 (desert) and 2.36:1 (shore) against a 3:1 large-text
+   floor. Opaque tone plus a slightly stronger lower veil: worst 2.74 / 2.76,
+   with under 0.1% of the text band below 3:1. */
+.interlude__veil{
+  background:linear-gradient(180deg,
+    rgba(28,21,13,.48),
+    rgba(28,21,13,.40) 50%,
+    rgba(28,21,13,.58) 75%,
+    rgba(28,21,13,.72));
+}
+.interlude__line em{ color:#e6e1d7; opacity:1; }
+
+/* A11Y-21 — the floating field labels on the dark Commission panel are the only
+   label those inputs have. rgba(244,236,224,.5) over the veiled photograph
+   measured 4.45:1 at the bright end. */
+.inquire .field label{ color:rgba(244,236,224,.62); }
+
+/* A11Y-22 — every other focus ring inside the checkout panel was moved to ink
+   by A11Y-09, but the terms checkbox kept a .5-alpha ring at 3.35:1. */
+.checkout__accept input:focus-visible{ outline-color:var(--espresso); }
+
+/* A11Y-23 — the no-JS safety net missed two rules that hide content outright.
+   (a) .reveal-img img is clipped to zero height; the earlier .no-js block
+       neutralised .reveal-img but not the <img> the clip-path is actually on,
+       so all fourteen lookbook images stayed invisible when scripts failed.
+   (b) The h1 lines are translated 110% inside overflow:hidden and only released
+       by body.ready, which JS adds — so the page had no visible headline. */
+.no-js .reveal-img img{ clip-path:none !important; transform:none !important; }
+.no-js .hero__title .line > span{ transform:none !important; }
+@media (prefers-reduced-motion: reduce){
+  .hero__title .line > span{ transform:none; }
+}

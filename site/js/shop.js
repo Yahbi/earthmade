@@ -74,7 +74,11 @@
 
   let lastFocus = null;
   const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
-  const main = document.querySelector('#top');
+  // The header and the footer sit outside <main id="top">, so inerting #top alone
+  // left the nav links and the twenty-three footer links exposed behind the panel.
+  function setBackgroundInert(on){
+    ['#top', '#nav', 'footer'].forEach(sel => document.querySelector(sel)?.toggleAttribute('inert', on));
+  }
 
   function openModal(d){
     active = d;
@@ -97,14 +101,14 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    main?.setAttribute('inert', '');
+    setBackgroundInert(true);
     setTimeout(() => (activeLive ? $('#coAccept') : $('#coName'))?.focus(), 360);
   }
   function closeModal(){
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    main?.removeAttribute('inert');
+    setBackgroundInert(false);
     lastFocus?.focus?.();
   }
   // Focus trap while the reservation modal is open
